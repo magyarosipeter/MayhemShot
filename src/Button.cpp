@@ -1,10 +1,10 @@
 #include "Button.h"
-#include <iostream>
 
-void Button::setAttributes(sf::Vector2f position, sf::Vector2f size, std::string stringText, unsigned int characterSize, std::string fontFile, sf::Color idleColor, sf::Color hoverColor, sf::Color activeColor, sf::Color textColor, sf::Color textHoverColor, sf::Color textActiveColor) {
+void Button::setAttributes(sf::Vector2f position, sf::Vector2f size, std::string stringText, unsigned int characterSize, std::string fontFile, sf::Color idleColor, sf::Color hoverColor, sf::Color textColor, sf::Color textHoverColor) {
 	rectangle.setSize(size);
 	rectangle.setOrigin(sf::Vector2f(size.x / 2, size.y / 2));
 	rectangle.setPosition(position);
+	rectangle.setFillColor(idleColor);
 
 	this->font.loadFromFile(fontFile);
 	this->text.setFont(font);
@@ -21,19 +21,18 @@ void Button::setAttributes(sf::Vector2f position, sf::Vector2f size, std::string
 
 	this->idleColor = idleColor;
 	this->hoverColor = hoverColor;
-	this->activeColor = activeColor;
 
 	this->textColor = textColor;
 	this->textHoverColor = textHoverColor;
-	this->textActiveColor = textActiveColor;
 
 	buttonState = BTN_IDLE;
 }
 
-bool Button::update(sf::Vector2i mousePosition) {
+bool Button::update(sf::Vector2i mousePosition, bool &mouseClicked) {
 	if ( rectangle.getGlobalBounds().contains(sf::Vector2f(mousePosition.x, mousePosition.y) ) ) {
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !mouseClicked) {
 			buttonState = BTN_ACTIVE;
+			mouseClicked = true;
 		}
 		else {
 			buttonState = BTN_HOVER;
@@ -44,8 +43,8 @@ bool Button::update(sf::Vector2i mousePosition) {
 	}
 
 	if (buttonState == BTN_ACTIVE) {
-        this->text.setFillColor(textActiveColor);
-        this->rectangle.setFillColor(activeColor);
+        this->text.setFillColor(textHoverColor);
+        this->rectangle.setFillColor(hoverColor);
         this->text.setCharacterSize(hoverSize);
 	}
 	else if (buttonState == BTN_HOVER) {

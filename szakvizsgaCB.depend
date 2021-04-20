@@ -1,10 +1,6 @@
 # depslib dependency file v1.0
-1618784685 source:d:\codeblocks\szakvizsgacb\main.cpp
-	<SFML/Graphics.hpp>
-	<iostream>
-	"MoreInfo.h"
-	"StateMachine.h"
-	"MainMenuState.h"
+1618787403 source:d:\codeblocks\szakvizsgacb\main.cpp
+	"Game.h"
 
 1525812018 d:\codeblocks sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -415,35 +411,89 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1618784751 source:d:\codeblocks\szakvizsgacb\src\button.cpp
+1618852010 source:d:\codeblocks\szakvizsgacb\src\button.cpp
 	"Button.h"
-	<iostream>
 
-1618783733 d:\codeblocks\szakvizsgacb\include\button.h
+1618844263 d:\codeblocks\szakvizsgacb\include\button.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	"MoreInfo.h"
 
-1618784487 d:\codeblocks\szakvizsgacb\include\moreinfo.h
+1618866437 d:\codeblocks\szakvizsgacb\include\moreinfo.h
 
-1618784977 source:d:\codeblocks\szakvizsgacb\src\mainmenustate.cpp
+1618866350 source:d:\codeblocks\szakvizsgacb\src\mainmenustate.cpp
 	"MainMenuState.h"
+	"OptionsState.h"
+	"EndlessModeState.h"
 	<iostream>
 
-1618782081 d:\codeblocks\szakvizsgacb\include\mainmenustate.h
+1618851516 d:\codeblocks\szakvizsgacb\include\mainmenustate.h
 	<SFML/Graphics.hpp>
 	"MoreInfo.h"
 	"State.h"
 	"Button.h"
+	"Title.h"
 
-1618781645 d:\codeblocks\szakvizsgacb\include\state.h
+1618844141 d:\codeblocks\szakvizsgacb\include\state.h
 	<SFML/Graphics.hpp>
-
-1618779855 source:d:\codeblocks\szakvizsgacb\src\statemachine.cpp
 	"StateMachine.h"
 
-1618779556 d:\codeblocks\szakvizsgacb\include\statemachine.h
+1618789175 source:d:\codeblocks\szakvizsgacb\src\statemachine.cpp
+	"StateMachine.h"
+
+1618844086 d:\codeblocks\szakvizsgacb\include\statemachine.h
 	<stack>
 	"MoreInfo.h"
 	"State.h"
+
+1618846398 source:d:\codeblocks\szakvizsgacb\src\game.cpp
+	"Game.h"
+
+1618831994 d:\codeblocks\szakvizsgacb\include\game.h
+	<iostream>
+	"MoreInfo.h"
+	"StateMachine.h"
+	"MainMenuState.h"
+
+1618852444 source:d:\codeblocks\szakvizsgacb\src\optionsstate.cpp
+	"OptionsState.h"
+
+1618852234 d:\codeblocks\szakvizsgacb\include\optionsstate.h
+	<SFML/Graphics.hpp>
+	"MoreInfo.h"
+	"State.h"
+	"Button.h"
+
+1618834094 d:\codeblocks\szakvizsgacb\include\title.h
+	<SFML/Graphics.hpp>
+	<MoreInfo.h>
+	<math.h>
+	<iostream>
+
+1618834256 source:d:\codeblocks\szakvizsgacb\src\title.cpp
+	"Title.h"
+
+1618846234 source:d:\codeblocks\szakvizsgacb\src\endlessmodestate.cpp
+	"EndlessModeState.h"
+
+1618846162 d:\codeblocks\szakvizsgacb\include\endlessmodestate.h
+	<SFML/Graphics.hpp>
+	"MoreInfo.h"
+	"State.h"
+	"Player.h"
+
+1618844158 source:d:\codeblocks\szakvizsgacb\src\entity.cpp
+	"Entity.h"
+
+1618845686 d:\codeblocks\szakvizsgacb\include\entity.h
+	<SFML/Graphics.hpp>
+
+1618850870 source:d:\codeblocks\szakvizsgacb\src\player.cpp
+	"Player.h"
+
+1618850819 d:\codeblocks\szakvizsgacb\include\player.h
+	<SFML/Graphics.hpp>
+	<iostream>
+	"Entity.h"
+	"MoreInfo.h"
 

@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-graphics-d" />
@@ -27,6 +28,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -48,8 +50,26 @@
 			<Add library="dxguid" />
 			<Add directory="D:/CodeBlocks SFML-2.5.1/lib" />
 		</Linker>
-		<Unit filename="cb.bmp" />
+		<Unit filename="include/Button.h" />
+		<Unit filename="include/EndlessModeState.h" />
+		<Unit filename="include/Entity.h" />
+		<Unit filename="include/Game.h" />
+		<Unit filename="include/MainMenuState.h" />
+		<Unit filename="include/MoreInfo.h" />
+		<Unit filename="include/OptionsState.h" />
+		<Unit filename="include/Player.h" />
+		<Unit filename="include/State.h" />
+		<Unit filename="include/StateMachine.h" />
+		<Unit filename="include/Title.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Button.cpp" />
+		<Unit filename="src/EndlessModeState.cpp" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/MainMenuState.cpp" />
+		<Unit filename="src/OptionsState.cpp" />
+		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/StateMachine.cpp" />
+		<Unit filename="src/Title.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

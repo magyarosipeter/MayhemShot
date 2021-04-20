@@ -10,9 +10,9 @@ enum ButtonStates { BTN_IDLE=0, BTN_HOVER=1, BTN_ACTIVE=2 };
 class Button {
 public:
 	void setAttributes(sf::Vector2f position, sf::Vector2f size, std::string stringText, unsigned int characterSize, std::string fontFile,
-		sf::Color idleColor, sf::Color hoverColor, sf::Color activeColor, sf::Color textColor, sf::Color textHoverColor, sf::Color textActiveColor);
+		sf::Color idleColor, sf::Color hoverColor, sf::Color textColor, sf::Color textHoverColor);
 
-	bool update(sf::Vector2i mousePosition);
+	bool update(sf::Vector2i mousePosition, bool &mouseClicked);
 
 	void drawToScreen(sf::RenderWindow& window);
 
@@ -25,6 +25,6 @@ private:
 
 	unsigned idleSize, hoverSize;
 
-	sf::Color idleColor, hoverColor, activeColor, textColor, textHoverColor, textActiveColor;
+	sf::Color idleColor, hoverColor, textColor, textHoverColor;
 };
 
