@@ -12,16 +12,16 @@ MainMenuState::MainMenuState(StateMachine* stateMachine) {
     title.setAttributes(
         sf::Vector2f(SCREEN_WIDTH/2, SCREEN_HEIGHT*10/100),
         "MayhemShot",
-        105,
+        125,
         TIMES_FONT,
         ORANGE
     );
 
 	singleplayerButton.setAttributes(
 		sf::Vector2f(SCREEN_WIDTH/2, SCREEN_HEIGHT*40/100),
-		sf::Vector2f(300, 50),
+		sf::Vector2f(350, 60),
 		"Singleplayer",
-		60,
+		70,
 		TIMES_FONT,
 		OPAQUE_GREY,
 		OPAQUE_GREY,
@@ -31,9 +31,9 @@ MainMenuState::MainMenuState(StateMachine* stateMachine) {
 
     multiplayerButton.setAttributes(
         sf::Vector2f(SCREEN_WIDTH/2, SCREEN_HEIGHT*55/100),
-		sf::Vector2f(280, 50),
+		sf::Vector2f(330, 60),
 		"Multiplayer",
-		60,
+		70,
 		TIMES_FONT,
 		OPAQUE_GREY,
 		OPAQUE_GREY,
@@ -43,9 +43,9 @@ MainMenuState::MainMenuState(StateMachine* stateMachine) {
 
     optionsButton.setAttributes(
         sf::Vector2f(SCREEN_WIDTH/2, SCREEN_HEIGHT*70/100),
-		sf::Vector2f(200, 50),
+		sf::Vector2f(230, 60),
 		"Options",
-		60,
+		70,
 		TIMES_FONT,
 		OPAQUE_GREY,
 		OPAQUE_GREY,
@@ -55,9 +55,9 @@ MainMenuState::MainMenuState(StateMachine* stateMachine) {
 
     quitButton.setAttributes(
         sf::Vector2f(SCREEN_WIDTH/2, SCREEN_HEIGHT*85/100),
-		sf::Vector2f(150, 50),
+		sf::Vector2f(150, 60),
 		"Quit",
-		60,
+		70,
 		TIMES_FONT,
 		OPAQUE_GREY,
 		OPAQUE_GREY,

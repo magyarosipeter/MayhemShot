@@ -12,6 +12,7 @@ Game::Game() {
 }
 
 void Game::run() {
+    frameTimer.restart();
     while (window.isOpen() and gameState.topState()!=NULL) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -28,10 +29,12 @@ void Game::run() {
 
         if ( sf::Mouse::isButtonPressed(sf::Mouse::Left) ) mouseClicked = true;
 
-        window.clear(sf::Color::Black);
+        window.clear(SKY_BLUE);
         gameState.topState()->draw(window);
         window.display();
 
         deltaTime = frameTimer.restart();
+        //std::cout << deltaTime.asMilliseconds() << std::endl;
+        std::cout << gameState.numberOfStates() << std::endl;
     }
 }

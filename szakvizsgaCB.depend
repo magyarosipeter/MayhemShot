@@ -419,34 +419,34 @@
 	<iostream>
 	"MoreInfo.h"
 
-1618866437 d:\codeblocks\szakvizsgacb\include\moreinfo.h
+1619093117 d:\codeblocks\szakvizsgacb\include\moreinfo.h
 
-1618866350 source:d:\codeblocks\szakvizsgacb\src\mainmenustate.cpp
+1619206953 source:d:\codeblocks\szakvizsgacb\src\mainmenustate.cpp
 	"MainMenuState.h"
 	"OptionsState.h"
 	"EndlessModeState.h"
 	<iostream>
 
-1618851516 d:\codeblocks\szakvizsgacb\include\mainmenustate.h
+1619090932 d:\codeblocks\szakvizsgacb\include\mainmenustate.h
 	<SFML/Graphics.hpp>
 	"MoreInfo.h"
 	"State.h"
 	"Button.h"
 	"Title.h"
 
-1618844141 d:\codeblocks\szakvizsgacb\include\state.h
+1619090924 d:\codeblocks\szakvizsgacb\include\state.h
 	<SFML/Graphics.hpp>
 	"StateMachine.h"
 
-1618789175 source:d:\codeblocks\szakvizsgacb\src\statemachine.cpp
+1619207242 source:d:\codeblocks\szakvizsgacb\src\statemachine.cpp
 	"StateMachine.h"
 
-1618844086 d:\codeblocks\szakvizsgacb\include\statemachine.h
+1619207220 d:\codeblocks\szakvizsgacb\include\statemachine.h
 	<stack>
 	"MoreInfo.h"
 	"State.h"
 
-1618846398 source:d:\codeblocks\szakvizsgacb\src\game.cpp
+1619207385 source:d:\codeblocks\szakvizsgacb\src\game.cpp
 	"Game.h"
 
 1618831994 d:\codeblocks\szakvizsgacb\include\game.h
@@ -458,7 +458,7 @@
 1618852444 source:d:\codeblocks\szakvizsgacb\src\optionsstate.cpp
 	"OptionsState.h"
 
-1618852234 d:\codeblocks\szakvizsgacb\include\optionsstate.h
+1619090926 d:\codeblocks\szakvizsgacb\include\optionsstate.h
 	<SFML/Graphics.hpp>
 	"MoreInfo.h"
 	"State.h"
@@ -473,27 +473,47 @@
 1618834256 source:d:\codeblocks\szakvizsgacb\src\title.cpp
 	"Title.h"
 
-1618846234 source:d:\codeblocks\szakvizsgacb\src\endlessmodestate.cpp
+1619207005 source:d:\codeblocks\szakvizsgacb\src\endlessmodestate.cpp
 	"EndlessModeState.h"
+	"PauseMenuState.h"
 
-1618846162 d:\codeblocks\szakvizsgacb\include\endlessmodestate.h
+1619090938 d:\codeblocks\szakvizsgacb\include\endlessmodestate.h
 	<SFML/Graphics.hpp>
 	"MoreInfo.h"
 	"State.h"
 	"Player.h"
+	"Map.h"
 
 1618844158 source:d:\codeblocks\szakvizsgacb\src\entity.cpp
 	"Entity.h"
 
-1618845686 d:\codeblocks\szakvizsgacb\include\entity.h
+1619090481 d:\codeblocks\szakvizsgacb\include\entity.h
 	<SFML/Graphics.hpp>
+	"Map.h"
 
-1618850870 source:d:\codeblocks\szakvizsgacb\src\player.cpp
+1619094030 source:d:\codeblocks\szakvizsgacb\src\player.cpp
 	"Player.h"
 
-1618850819 d:\codeblocks\szakvizsgacb\include\player.h
+1619205487 d:\codeblocks\szakvizsgacb\include\player.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Entity.h"
 	"MoreInfo.h"
+	"Map.h"
+
+1619092777 source:d:\codeblocks\szakvizsgacb\src\map.cpp
+	"Map.h"
+
+1619037595 d:\codeblocks\szakvizsgacb\include\map.h
+	<fstream>
+	<iostream>
+	<SFML/Graphics.hpp>
+	"MoreInfo.h"
+
+1619206323 d:\codeblocks\szakvizsgacb\include\pausemenustate.h
+	"State.h"
+	"Button.h"
+
+1619207657 source:d:\codeblocks\szakvizsgacb\src\pausemenustate.cpp
+	"PauseMenuState.h"
 

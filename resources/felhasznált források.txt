@@ -1,1 +1,5 @@
+// Kód és ötletek
+https://gamedevelopment.tutsplus.com/tutorials/finite-state-machines-theory-and-implementation--gamedev-11867
+
+// Assetek
 https://craftpix.net/freebies/free-market-cartoon-2d-game-tileset/

@@ -4,6 +4,7 @@
 #include "MoreInfo.h"
 #include "State.h"
 #include "Player.h"
+#include "Map.h"
 
 class EndlessModeState : public State {
 public:
@@ -14,4 +15,6 @@ public:
 
 private:
     Player player;
+
+    Map map;
 };

@@ -14,6 +14,7 @@ public:
 	StateMachine();
 
 	void popState();
+	void popState(unsigned times);
 	void pushState(State* newState);
 	void replaceState(State* newState);
 

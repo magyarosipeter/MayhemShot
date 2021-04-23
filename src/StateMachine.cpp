@@ -10,7 +10,19 @@ StateMachine::StateMachine() {
 
 void StateMachine::popState() {
 	if (States.top() != NULL) { //nullptr
+		State* pointer = States.top();
 		States.pop();
+		delete pointer;
+	}
+}
+
+void StateMachine::popState(unsigned times) {
+	for (int i=0 ; i<times ; i++) {
+        if (States.top() != NULL) { //nullptr
+            State* pointer = States.top();
+            States.pop();
+            delete pointer;
+        }
 	}
 }
 
@@ -19,9 +31,7 @@ void StateMachine::pushState(State* newState) {
 }
 
 void StateMachine::replaceState(State* newState) {
-	if (States.top() != NULL) { //nullptr
-		States.pop();
-	}
+	this->popState();
 	States.push(newState);
 }
 
