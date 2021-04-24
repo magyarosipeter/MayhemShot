@@ -4,7 +4,7 @@
 // TILE CLASS FUNCTIONS
 ///////////////////////////////////////////////////
 Tile::Tile() {
-    hitbox.setSize(sf::Vector2f(64,64));
+    hitbox.setSize(sf::Vector2f(MAP_TILE_SIZE,MAP_TILE_SIZE));
     hitbox.setOrigin(sf::Vector2f(hitbox.getSize().x/2, hitbox.getSize().y/2));
     sprite.setOrigin(sf::Vector2f(hitbox.getSize().x/2, hitbox.getSize().y/2));
     hitbox.setFillColor(sf::Color::Red);
@@ -56,7 +56,7 @@ void Map::loadMap(std::string textureLocation) {
         for (int j=0 ; j<20 ; j++) {
             short int szam;
             fin >> szam;
-            tileMap[i][j].setAttributes(szam, sf::Vector2f(32+j*64, 32+i*64), pSpriteSheet );
+            tileMap[i][j].setAttributes(szam, sf::Vector2f(MAP_TILE_SIZE/2+j*MAP_TILE_SIZE, MAP_TILE_SIZE/2+i*MAP_TILE_SIZE), pSpriteSheet );
         }
     }
 }

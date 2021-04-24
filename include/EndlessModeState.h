@@ -5,6 +5,12 @@
 #include "State.h"
 #include "Player.h"
 #include "Map.h"
+#include "Projectile.h"
+#include "Enemy.h"
+#include "WeaponCrate.h"
+
+#define MIN_ENEMY_SPAWN_TIME 60
+#define MAX_ENEMIES 7
 
 class EndlessModeState : public State {
 public:
@@ -16,5 +22,13 @@ public:
 private:
     Player player;
 
+    std::vector<Projectile> projectiles;
+
+    std::vector<Enemy> enemies;
+
     Map map;
+
+    WeaponCrate weaponCrate;
+
+    unsigned enemySpawnFrames;              // counts the frames since an enemy last spawned
 };

@@ -12,5 +12,6 @@ public:
 
 private:
     Button resumeButton;
+    Button optionsButton;
     Button backToMenuButton;
 };

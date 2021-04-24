@@ -20,7 +20,7 @@ void Game::run() {
                 window.close();
             }
             if (event.type == sf::Event::Resized) {
-                window.setSize( sf::Vector2u(window.getSize().x, (double)SCREEN_HEIGHT/SCREEN_WIDTH*window.getSize().x) );
+                window.setSize( sf::Vector2u((double)SCREEN_WIDTH/SCREEN_HEIGHT*event.size.height, event.size.height) );
             }
         }
         if ( !sf::Mouse::isButtonPressed(sf::Mouse::Left) ) mouseClicked = false;
@@ -34,7 +34,6 @@ void Game::run() {
         window.display();
 
         deltaTime = frameTimer.restart();
-        //std::cout << deltaTime.asMilliseconds() << std::endl;
-        std::cout << gameState.numberOfStates() << std::endl;
+        std::cout << deltaTime.asMilliseconds() << std::endl;
     }
 }

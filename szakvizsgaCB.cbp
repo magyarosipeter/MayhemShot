@@ -52,6 +52,7 @@
 		</Linker>
 		<Unit filename="include/Button.h" />
 		<Unit filename="include/EndlessModeState.h" />
+		<Unit filename="include/Enemy.h" />
 		<Unit filename="include/Entity.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/MainMenuState.h" />
@@ -60,21 +61,28 @@
 		<Unit filename="include/OptionsState.h" />
 		<Unit filename="include/PauseMenuState.h" />
 		<Unit filename="include/Player.h" />
+		<Unit filename="include/Projectile.h" />
 		<Unit filename="include/State.h" />
 		<Unit filename="include/StateMachine.h" />
 		<Unit filename="include/Title.h" />
+		<Unit filename="include/Weapon.h" />
+		<Unit filename="include/WeaponCrate.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="resources/maps/map1.in" />
 		<Unit filename="src/Button.cpp" />
 		<Unit filename="src/EndlessModeState.cpp" />
+		<Unit filename="src/Enemy.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/MainMenuState.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/OptionsState.cpp" />
 		<Unit filename="src/PauseMenuState.cpp" />
 		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/Projectile.cpp" />
 		<Unit filename="src/StateMachine.cpp" />
 		<Unit filename="src/Title.cpp" />
+		<Unit filename="src/Weapon.cpp" />
+		<Unit filename="src/WeaponCrate.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
