@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include <cmath>
 
@@ -23,6 +24,8 @@ public:
     virtual void drawToScreen(sf::RenderWindow &window);
 
     void shoot(std::vector<Projectile> &projectiles);
+    void playGunSound();
+    void playPickupSound();
 
     //getters
     int getDamage();
@@ -33,8 +36,19 @@ public:
 
 private:
     Weapon* weapon;
-    int xSpeed, ySpeed;
+    sf::SoundBuffer weaponSoundBuffer;
+    sf::Sound weaponSound;
+    sf::SoundBuffer finishingWeaponSoundBuffer;
+    sf::Sound finishingWeaponSound;     //when you pick up a new weapon, the old one's sound has to end
+
+    sf::SoundBuffer pickUpSoundBuffer;
+    sf::Sound pickUpSound;
+
     bool falling;
+    sf::SoundBuffer jumpSoundBuffer;
+    sf::Sound jumpSound;
+
+    int xSpeed, ySpeed;
     unsigned jumpFrames;         //counts the number of frames since the character last started jumped
     unsigned shootFrames;        //counts the number of frames since the character last shot
     float rotation;

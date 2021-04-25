@@ -13,6 +13,14 @@ Player::Player() {
     jumpFrames = JUMP_COOLDOWN_FRAMES+1;
 
     weapon = new Pistol;
+    weaponSoundBuffer.loadFromFile(PISTOL_SOUND);
+    weaponSound.setBuffer(weaponSoundBuffer);
+
+    jumpSoundBuffer.loadFromFile(JUMP_SOUND);
+    jumpSound.setBuffer(jumpSoundBuffer);
+
+    pickUpSoundBuffer.loadFromFile(GUN_PICKUP_SOUND);
+    pickUpSound.setBuffer(pickUpSoundBuffer);
 }
 
 int Player::getDamage() {
@@ -24,7 +32,26 @@ sf::FloatRect Player::globalBounds() {
     return hitbox.getGlobalBounds();
 }
 void Player::setWeapon(Weapon* newWeapon) {
+    if ( weaponSound.getStatus() == sf::SoundSource::Playing) {
+        finishingWeaponSoundBuffer = *weaponSound.getBuffer();
+        finishingWeaponSound.setBuffer(finishingWeaponSoundBuffer);
+
+        finishingWeaponSound.setPlayingOffset(weaponSound.getPlayingOffset());
+        finishingWeaponSound.play();
+    }
+
     this->weapon = newWeapon;
+    if (this->weapon->getType()=="Pistol") {
+        weaponSoundBuffer.loadFromFile(PISTOL_SOUND);
+    } else if (this->weapon->getType()=="Shotgun") {
+        weaponSoundBuffer.loadFromFile(SHOTGUN_SOUND);
+    } else if (this->weapon->getType()=="Rifle") {
+        weaponSoundBuffer.loadFromFile(RIFLE_SOUND);
+    } else if (this->weapon->getType()=="Sniper") {
+        weaponSoundBuffer.loadFromFile(SNIPER_SOUND);
+    } else {
+        weaponSoundBuffer.loadFromFile(PISTOL_SOUND);
+    }
 }
 
 void Player::movement(Tile tileMap[MAP_HEIGHT][MAP_WIDTH], sf::RenderWindow &window) {
@@ -46,6 +73,7 @@ void Player::movement(Tile tileMap[MAP_HEIGHT][MAP_WIDTH], sf::RenderWindow &win
         ySpeed = JUMP_SPEED;
         falling = true;
         jumpFrames = 0;
+        jumpSound.play();
     }
 
     //add gravity
@@ -124,20 +152,6 @@ void Player::movement(Tile tileMap[MAP_HEIGHT][MAP_WIDTH], sf::RenderWindow &win
         weapon->setRotation( rotation );
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
-        delete weapon;
-        weapon = new Pistol;
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
-        delete weapon;
-        weapon = new Shotgun;
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
-        delete weapon;
-        weapon = new Rifle;
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
-        delete weapon;
-        weapon = new Sniper;
-    }
-
     if (weapon!=NULL) {
         weapon->setPosition(sf::Vector2f(hitbox.getPosition().x, hitbox.getPosition().y-hitbox.getSize().y*10/100));
     }
@@ -149,6 +163,7 @@ void Player::shoot(std::vector<Projectile> &projectiles) {
             weapon->shoot(projectiles, rotation);
             shootFrames = 0;
             weapon->setAmmo(weapon->getAmmo()-1);
+            this->playGunSound();
 
             if (weapon->getAmmo()==0) {
                 delete weapon;
@@ -159,6 +174,14 @@ void Player::shoot(std::vector<Projectile> &projectiles) {
     }
 
     shootFrames++;
+}
+
+void Player::playGunSound() {
+    weaponSound.play();
+}
+
+void Player::playPickupSound() {
+    pickUpSound.play();
 }
 
 void Player::drawToScreen(sf::RenderWindow &window) {

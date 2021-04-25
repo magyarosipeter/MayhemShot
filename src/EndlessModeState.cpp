@@ -1,5 +1,37 @@
 #include "EndlessModeState.h"
 #include "PauseMenuState.h"
+#include <sstream>
+
+std::string intToString(int n) {
+    std::stringstream ss;
+    ss << n;
+    return ss.str();
+}
+
+EndlessModeState::EndlessModeState(StateMachine* stateMachine) {
+    this->stateMachine = stateMachine;
+
+    map.loadMap(GROUND_TILES_TEXTURE);
+    weaponCrate.setRandomPosition(map.tileMap);
+
+    //spawning an enemy is possible straight away when starting the game
+    enemySpawnFrames = MIN_ENEMY_SPAWN_TIME;
+
+    enemyDieSoundBuffer.loadFromFile(ENEMY_DIE_SOUND);
+    enemyDieSound.setBuffer(enemyDieSoundBuffer);
+
+    enrageSoundBuffer.loadFromFile(ENEMY_ENRAGE_SOUND);
+    enrageSound.setBuffer(enrageSoundBuffer);
+
+    font.loadFromFile(TIMES_FONT);
+    playerKills = 0;
+    playerScore.setFont(font);
+    playerScore.setCharacterSize(40);
+    playerScore.setString("Score: 0");
+
+    music.openFromFile(SONG_1);
+    music.play();
+}
 
 void deleteProjectiles(std::vector<Projectile> &projectiles, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
     unsigned i=0;
@@ -34,43 +66,47 @@ void deleteProjectiles(std::vector<Projectile> &projectiles, Tile tileMap[MAP_HE
     }
 }
 
-void killEnemies(std::vector<Projectile> &projectiles, std::vector<Enemy> &enemies, Player &player) {
-    for (int i=0 ; i<enemies.size() ; i++) {
-        for (int j=0 ; j<projectiles.size() && i>=0 && i<enemies.size() ; j++) {
-            if (projectiles[j].globalBounds().intersects(enemies[i].globalBounds())) {
-                projectiles.erase(projectiles.begin()+j);
-                j--;
+void EndlessModeState::killEnemies() {
+    int i=0;
+    while (i<projectiles.size()) {
+        bool collided = false;
+        int j=0;
+        while (j<enemies.size() && !collided) {
+            //projectile number "i" collided with enemy number "j"
+            if (projectiles[i].globalBounds().intersects(enemies[j].globalBounds())) {
 
-                enemies[i].setHealth(enemies[i].getHealth() - player.getDamage());
-                if (enemies[i].getHealth()<=0) {
-                    enemies.erase(enemies.begin()+i);
-                    i--;
+                enemies[j].setHealth(enemies[j].getHealth() - projectiles[i].getDamage());
+
+                if (enemies[j].getHealth()<=0) {
+                    enemies.erase(enemies.begin()+j);
+                    this->enemyDieSound.play();
+                    playerKills++;
+                    playerScore.setString(std::string("Score: "+intToString(playerKills)));
                 }
+                collided = true;
             }
+            // else we continue iterating through the enemies
+            else {
+                j++;
+            }
+        }
+        if (!collided) {
+            i++;
+        } else {
+            projectiles.erase(projectiles.begin()+i);
         }
     }
 }
 
-
-void enemyOutOfBounds(std::vector<Enemy> &enemies) {
+void EndlessModeState::enemyOutOfBounds() {
     unsigned i=0;
     while ( i<enemies.size() ) {
         if (enemies[i].getPosition().y>SCREEN_HEIGHT*110/100) {
             enemies[i].setAngry();
+            enrageSound.play();
         }
         i++;
     }
-}
-
-
-EndlessModeState::EndlessModeState(StateMachine* stateMachine) {
-    this->stateMachine = stateMachine;
-
-    map.loadMap(GROUND_TILES_TEXTURE);
-    weaponCrate.setRandomPosition(map.tileMap);
-
-    //spawning an enemy is possible straight away when starting the game
-    enemySpawnFrames = MIN_ENEMY_SPAWN_TIME;
 }
 
 void EndlessModeState::update(sf::RenderWindow &window, sf::Time deltaTime, bool &mouseClicked) {
@@ -93,17 +129,20 @@ void EndlessModeState::update(sf::RenderWindow &window, sf::Time deltaTime, bool
         enemies[i].movement(map.tileMap, window);
     }
     //deal with enemies falling out of the map
-    enemyOutOfBounds(enemies);
+    this->enemyOutOfBounds();
+
+    //kill enemy and delete projectile that collide with them
+    this->killEnemies();
+    //killEnemies(projectiles, enemies, player);
 
     //delete projectiles that collide with solid blocks
     deleteProjectiles(projectiles, map.tileMap);
-
-    killEnemies(projectiles, enemies, player);
 
     //player picks up crate for random weapon
     if (player.globalBounds().intersects(weaponCrate.globalBounds())) {
         player.setWeapon(weaponCrate.rollWeapon());
         weaponCrate.setRandomPosition(map.tileMap);
+        player.playPickupSound();
     }
 
     //press ESC to open the pause menu
@@ -136,4 +175,6 @@ void EndlessModeState::draw(sf::RenderWindow& window) {
     player.drawToScreen(window);
 
     weaponCrate.drawToScreen(window);
+
+    window.draw(playerScore);
 }

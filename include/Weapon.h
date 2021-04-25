@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "MoreInfo.h"
 #include "Projectile.h"
 
@@ -24,6 +25,7 @@ public:
     //getters
     int getAmmo();
     int getDamage();
+    std::string getType();
     unsigned getCooldownFrames();
 
     //draw

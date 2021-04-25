@@ -39,6 +39,14 @@ PauseMenuState::PauseMenuState(StateMachine* stateMachine) {
         sf::Color::White,
         sf::Color::Magenta
     );
+
+    title.setAttributes(
+        sf::Vector2f(SCREEN_WIDTH*50/100, SCREEN_HEIGHT*10/100),
+        "PAUSED",
+        120,
+        TIMES_FONT,
+        ORANGE
+    );
 }
 
 void PauseMenuState::update(sf::RenderWindow &window, sf::Time deltaTime, bool &mouseClicked) {
@@ -59,6 +67,8 @@ void PauseMenuState::update(sf::RenderWindow &window, sf::Time deltaTime, bool &
 }
 
 void PauseMenuState::draw(sf::RenderWindow& window) {
+    title.drawToScreen(window);
+
     resumeButton.drawToScreen(window);
     optionsButton.drawToScreen(window);
     backToMenuButton.drawToScreen(window);

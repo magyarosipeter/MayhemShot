@@ -28,6 +28,9 @@ void Weapon::drawToScreen(sf::RenderWindow &window) {
 void Weapon::setPosition(sf::Vector2f position) {
     sprite.setPosition(position);
 }
+std::string Weapon::getType() {
+    return type;
+}
 
 void Weapon::shoot(std::vector<Projectile> &projectiles, float rotation) {
     for (int i=0 ; i<numberOfPellets ; i++) {
@@ -35,7 +38,7 @@ void Weapon::shoot(std::vector<Projectile> &projectiles, float rotation) {
         int spreadValue = rand()%spread;
         rand()%2==1 ? spreadValue*=-1 : spreadValue*=1;
 
-        newProjectile.initialize(-rotation+180+spreadValue, sprite.getPosition(), bulletSpeed);
+        newProjectile.initialize(-rotation+180+spreadValue, sprite.getPosition(), bulletSpeed, damage);
         projectiles.push_back(newProjectile);
     }
 }
@@ -90,9 +93,9 @@ Pistol::Pistol() {
     cooldownFrames = 25;
     spread = 2;
     numberOfPellets = 1;
-    bulletSpeed = 15;
+    bulletSpeed = 14;
     damage = 2;
-    ammo = 12;
+    ammo = 10;
 
     sprite.setTextureRect(sf::IntRect(0,0,TEXTURE_WIDTH, TEXTURE_HEIGHT));
     sprite.setScale(sf::Vector2f(0.5f, 0.5f));
@@ -105,7 +108,7 @@ Shotgun::Shotgun() {
     numberOfPellets = 5;
     bulletSpeed = 10;
     damage = 1;
-    ammo = 7;
+    ammo = 6;
 
     sprite.setTextureRect(sf::IntRect(1*TEXTURE_WIDTH,0,TEXTURE_WIDTH, TEXTURE_HEIGHT));
 }
@@ -115,9 +118,9 @@ Rifle::Rifle() {
     cooldownFrames = 8;
     spread = 5;
     numberOfPellets = 1;
-    bulletSpeed = 12;
-    damage = 2;
-    ammo = 20;
+    bulletSpeed = 16;
+    damage = 1;
+    ammo = 21;
 
     sprite.setTextureRect(sf::IntRect(2*TEXTURE_WIDTH,0,TEXTURE_WIDTH, TEXTURE_HEIGHT));
 }

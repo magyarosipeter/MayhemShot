@@ -10,7 +10,7 @@ void Projectile::movement() {
     hitbox.move(velocity);
 }
 
-void Projectile::initialize(double angle, sf::Vector2f startingPos, int bulletSpeed) {
+void Projectile::initialize(double angle, sf::Vector2f startingPos, int bulletSpeed, int bulletDamage) {
     angle = 360 - angle;
 
     hitbox.setPosition(startingPos);
@@ -22,8 +22,14 @@ void Projectile::initialize(double angle, sf::Vector2f startingPos, int bulletSp
 
     velocity.x *= -1;
     velocity.y *= -1;
+
+    damage = bulletDamage;
 }
 
+//getters
+int Projectile::getDamage() {
+    return damage;
+}
 sf::Vector2f Projectile::getPosition() {
     return hitbox.getPosition();
 }

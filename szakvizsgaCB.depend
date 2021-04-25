@@ -420,7 +420,7 @@
 	<iostream>
 	"MoreInfo.h"
 
-1619298346 d:\codeblocks\szakvizsgacb\include\moreinfo.h
+1619383130 d:\codeblocks\szakvizsgacb\include\moreinfo.h
 
 1619206953 source:d:\codeblocks\szakvizsgacb\src\mainmenustate.cpp
 	"MainMenuState.h"
@@ -447,10 +447,10 @@
 	"MoreInfo.h"
 	"State.h"
 
-1619291569 source:d:\codeblocks\szakvizsgacb\src\game.cpp
+1619353956 source:d:\codeblocks\szakvizsgacb\src\game.cpp
 	"Game.h"
 
-1618831994 d:\codeblocks\szakvizsgacb\include\game.h
+1619342949 d:\codeblocks\szakvizsgacb\include\game.h
 	<iostream>
 	"MoreInfo.h"
 	"StateMachine.h"
@@ -474,11 +474,12 @@
 1618834256 source:d:\codeblocks\szakvizsgacb\src\title.cpp
 	"Title.h"
 
-1619307729 source:d:\codeblocks\szakvizsgacb\src\endlessmodestate.cpp
+1619385903 source:d:\codeblocks\szakvizsgacb\src\endlessmodestate.cpp
 	"EndlessModeState.h"
 	"PauseMenuState.h"
+	<sstream>
 
-1619308104 d:\codeblocks\szakvizsgacb\include\endlessmodestate.h
+1619383885 d:\codeblocks\szakvizsgacb\include\endlessmodestate.h
 	<SFML/Graphics.hpp>
 	"MoreInfo.h"
 	"State.h"
@@ -495,11 +496,12 @@
 	<SFML/Graphics.hpp>
 	"Map.h"
 
-1619307061 source:d:\codeblocks\szakvizsgacb\src\player.cpp
+1619385510 source:d:\codeblocks\szakvizsgacb\src\player.cpp
 	"Player.h"
 
-1619307036 d:\codeblocks\szakvizsgacb\include\player.h
+1619385403 d:\codeblocks\szakvizsgacb\include\player.h
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 	<iostream>
 	<cmath>
 	"Entity.h"
@@ -517,44 +519,151 @@
 	<SFML/Graphics.hpp>
 	"MoreInfo.h"
 
-1619209823 d:\codeblocks\szakvizsgacb\include\pausemenustate.h
+1619354923 d:\codeblocks\szakvizsgacb\include\pausemenustate.h
 	"State.h"
 	"Button.h"
+	"Title.h"
 
-1619210013 source:d:\codeblocks\szakvizsgacb\src\pausemenustate.cpp
+1619354951 source:d:\codeblocks\szakvizsgacb\src\pausemenustate.cpp
 	"PauseMenuState.h"
 	"OptionsState.h"
 
-1619304603 d:\codeblocks\szakvizsgacb\include\weapon.h
+1619376380 d:\codeblocks\szakvizsgacb\include\weapon.h
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 	"MoreInfo.h"
 	"Projectile.h"
 
-1619307947 source:d:\codeblocks\szakvizsgacb\src\weapon.cpp
+1619383678 source:d:\codeblocks\szakvizsgacb\src\weapon.cpp
 	"Weapon.h"
 
-1619296872 d:\codeblocks\szakvizsgacb\include\projectile.h
+1619354445 d:\codeblocks\szakvizsgacb\include\projectile.h
 	<SFML/Graphics.hpp>
 	"MoreInfo.h"
 	<cmath>
 
-1619296753 source:d:\codeblocks\szakvizsgacb\src\projectile.cpp
+1619354464 source:d:\codeblocks\szakvizsgacb\src\projectile.cpp
 	"Projectile.h"
 
-1619307652 source:d:\codeblocks\szakvizsgacb\src\enemy.cpp
+1619383383 source:d:\codeblocks\szakvizsgacb\src\enemy.cpp
 	"Enemy.h"
 
-1619304301 d:\codeblocks\szakvizsgacb\include\enemy.h
+1619383373 d:\codeblocks\szakvizsgacb\include\enemy.h
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 	"Entity.h"
 	"MoreInfo.h"
 
-1619306939 d:\codeblocks\szakvizsgacb\include\weaponcrate.h
+1619380163 d:\codeblocks\szakvizsgacb\include\weaponcrate.h
 	<SFML/Graphics.hpp>
 	"Weapon.h"
 	"Map.h"
 	"MoreInfo.h"
 
-1619307608 source:d:\codeblocks\szakvizsgacb\src\weaponcrate.cpp
+1619380245 source:d:\codeblocks\szakvizsgacb\src\weaponcrate.cpp
 	"WeaponCrate.h"
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio.hpp
+	<SFML/System.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/Audio/Listener.hpp>
+	<SFML/Audio/Music.hpp>
+	<SFML/Audio/OutputSoundFile.hpp>
+	<SFML/Audio/Sound.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundBufferRecorder.hpp>
+	<SFML/Audio/SoundFileFactory.hpp>
+	<SFML/Audio/SoundFileReader.hpp>
+	<SFML/Audio/SoundFileWriter.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/Audio/SoundStream.hpp>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\inputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<algorithm>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\export.hpp
+	<SFML/Config.hpp>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\listener.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\music.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundStream.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\soundstream.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Mutex.hpp>
+	<cstdlib>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\soundsource.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Vector3.hpp>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\alresource.hpp
+	<SFML/Audio/Export.hpp>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\outputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<string>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\sound.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\soundbuffer.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+	<set>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\soundbufferrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<vector>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\soundrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<vector>
+	<string>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\soundfilefactory.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+	<vector>
+	<SFML/Audio/SoundFileFactory.inl>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\soundfilefactory.inl
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\soundfilereader.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\soundfilewriter.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
 

@@ -8,7 +8,7 @@ class Projectile {
 public:
     Projectile();
 
-    void initialize(double angle, sf::Vector2f startingPos, int bulletSpeed);
+    void initialize(double angle, sf::Vector2f startingPos, int bulletSpeed, int bulletDamage);
 
     //called every frame to move bullet forward
     void movement();
@@ -17,6 +17,7 @@ public:
     sf::Vector2f getPosition();
     int getHitboxRadius();
     sf::FloatRect globalBounds();
+    int getDamage();
 
     //draw
     void drawToScreen(sf::RenderWindow &window);
@@ -24,6 +25,6 @@ public:
     sf::CircleShape hitbox;
 
 private:
-
+    int damage;
     sf::Vector2f velocity;
 };

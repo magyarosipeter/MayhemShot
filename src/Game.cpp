@@ -9,6 +9,8 @@ Game::Game() {
     gameState.pushState(mainMenuState);
 
     mouseClicked = false;
+
+    focused = true;
 }
 
 void Game::run() {
@@ -19,21 +21,30 @@ void Game::run() {
             if (event.type == sf::Event::Closed) {
                 window.close();
             }
-            if (event.type == sf::Event::Resized) {
+            else if (event.type == sf::Event::Resized) {
                 window.setSize( sf::Vector2u((double)SCREEN_WIDTH/SCREEN_HEIGHT*event.size.height, event.size.height) );
             }
+            if (event.type == sf::Event::LostFocus) {
+                focused = false;
+            }
+            if (event.type == sf::Event::GainedFocus) {
+                focused = true;
+            }
         }
-        if ( !sf::Mouse::isButtonPressed(sf::Mouse::Left) ) mouseClicked = false;
 
-        gameState.topState()->update(window, deltaTime, mouseClicked);
+        if (focused) {
+            if ( !sf::Mouse::isButtonPressed(sf::Mouse::Left) ) mouseClicked = false;
 
-        if ( sf::Mouse::isButtonPressed(sf::Mouse::Left) ) mouseClicked = true;
+            gameState.topState()->update(window, deltaTime, mouseClicked);
 
-        window.clear(SKY_BLUE);
-        gameState.topState()->draw(window);
-        window.display();
+            if ( sf::Mouse::isButtonPressed(sf::Mouse::Left) ) mouseClicked = true;
+
+            window.clear(SKY_BLUE);
+            gameState.topState()->draw(window);
+            window.display();
+        }
 
         deltaTime = frameTimer.restart();
-        std::cout << deltaTime.asMilliseconds() << std::endl;
+        //std::cout << deltaTime.asMilliseconds() << std::endl;
     }
 }

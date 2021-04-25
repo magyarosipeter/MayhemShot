@@ -20,5 +20,7 @@ private:
     sf::Time deltaTime;
     sf::Clock frameTimer;
 
+    bool focused;
+
     bool mouseClicked;
 };

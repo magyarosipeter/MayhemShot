@@ -19,5 +19,6 @@ public:
 
 private:
     sf::RectangleShape hitbox;
+    sf::Sprite sprite;
     sf::Texture texture;
 };

@@ -29,5 +29,17 @@
 #define OPTIONS_BACKGROUND_TEXTURE "resources/images/Background_02.png"
 #define GROUND_TILES_TEXTURE "resources/images/GroundTiles.png"
 #define WEAPONS_TEXTURE "resources/images/weapons.png"
+#define WEAPON_CRATE_TEXTURE "resources/images/crate.png"
 
 //Sound Effects
+#define PISTOL_SOUND "resources/sounds/pistol.wav"
+#define SHOTGUN_SOUND "resources/sounds/shotgun.wav"
+#define RIFLE_SOUND "resources/sounds/rifle.wav"
+#define SNIPER_SOUND "resources/sounds/sniper.wav"
+#define GUN_PICKUP_SOUND "resources/sounds/gunPickup.wav"
+
+#define ENEMY_DIE_SOUND "resources/sounds/enemyDie.wav"
+#define ENEMY_ENRAGE_SOUND "resources/sounds/enemyEnrage.wav"
+#define JUMP_SOUND "resources/sounds/jump.wav"
+
+#define SONG_1 "resources/music/Bass.ogg"
