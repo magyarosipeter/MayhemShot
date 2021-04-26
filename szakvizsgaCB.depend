@@ -420,7 +420,7 @@
 	<iostream>
 	"MoreInfo.h"
 
-1619383130 d:\codeblocks\szakvizsgacb\include\moreinfo.h
+1619397788 d:\codeblocks\szakvizsgacb\include\moreinfo.h
 
 1619206953 source:d:\codeblocks\szakvizsgacb\src\mainmenustate.cpp
 	"MainMenuState.h"
@@ -474,12 +474,12 @@
 1618834256 source:d:\codeblocks\szakvizsgacb\src\title.cpp
 	"Title.h"
 
-1619385903 source:d:\codeblocks\szakvizsgacb\src\endlessmodestate.cpp
+1619397922 source:d:\codeblocks\szakvizsgacb\src\endlessmodestate.cpp
 	"EndlessModeState.h"
 	"PauseMenuState.h"
 	<sstream>
 
-1619383885 d:\codeblocks\szakvizsgacb\include\endlessmodestate.h
+1619397749 d:\codeblocks\szakvizsgacb\include\endlessmodestate.h
 	<SFML/Graphics.hpp>
 	"MoreInfo.h"
 	"State.h"
@@ -492,7 +492,7 @@
 1618844158 source:d:\codeblocks\szakvizsgacb\src\entity.cpp
 	"Entity.h"
 
-1619215921 d:\codeblocks\szakvizsgacb\include\entity.h
+1619392511 d:\codeblocks\szakvizsgacb\include\entity.h
 	<SFML/Graphics.hpp>
 	"Map.h"
 
@@ -534,7 +534,7 @@
 	"MoreInfo.h"
 	"Projectile.h"
 
-1619383678 source:d:\codeblocks\szakvizsgacb\src\weapon.cpp
+1619397606 source:d:\codeblocks\szakvizsgacb\src\weapon.cpp
 	"Weapon.h"
 
 1619354445 d:\codeblocks\szakvizsgacb\include\projectile.h
@@ -545,14 +545,15 @@
 1619354464 source:d:\codeblocks\szakvizsgacb\src\projectile.cpp
 	"Projectile.h"
 
-1619383383 source:d:\codeblocks\szakvizsgacb\src\enemy.cpp
+1619397714 source:d:\codeblocks\szakvizsgacb\src\enemy.cpp
 	"Enemy.h"
 
-1619383373 d:\codeblocks\szakvizsgacb\include\enemy.h
+1619397732 d:\codeblocks\szakvizsgacb\include\enemy.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"Entity.h"
 	"MoreInfo.h"
+	"Animation.h"
 
 1619380163 d:\codeblocks\szakvizsgacb\include\weaponcrate.h
 	<SFML/Graphics.hpp>
@@ -666,4 +667,10 @@
 1525812018 d:\codeblocks sfml-2.5.1\include\sfml\audio\soundfilewriter.hpp
 	<SFML/Audio/Export.hpp>
 	<string>
+
+1619394942 d:\codeblocks\szakvizsgacb\include\animation.h
+	<SFML/Graphics.hpp>
+
+1619395104 source:d:\codeblocks\szakvizsgacb\src\animation.cpp
+	"Animation.h"
 

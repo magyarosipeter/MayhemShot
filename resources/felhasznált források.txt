@@ -4,6 +4,7 @@ https://gamedevelopment.tutsplus.com/tutorials/finite-state-machines-theory-and-
 // Assetek
 https://craftpix.net/freebies/free-market-cartoon-2d-game-tileset/
 https://sfbgames.itch.io/chiptone
+https://opengameart.org/content/land-torn-monster-sprites
 
 // Hangok
 https://www.soundsnap.com/

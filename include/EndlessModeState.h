@@ -31,6 +31,8 @@ private:
     sf::Sound enemyDieSound;
     sf::SoundBuffer enrageSoundBuffer;
     sf::Sound enrageSound;
+    sf::Texture enemy1Texture;
+    sf::Texture enemy2Texture;
 
     WeaponCrate weaponCrate;
 

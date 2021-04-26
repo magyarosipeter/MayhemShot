@@ -10,6 +10,6 @@ public:
 
 protected:
     sf::RectangleShape hitbox;
-    sf::Texture texture;
+    sf::Texture* texture;
     sf::Sprite sprite;
 };

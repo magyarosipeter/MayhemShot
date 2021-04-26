@@ -134,7 +134,7 @@ Sniper::Sniper() {
     spread = 1;
     numberOfPellets = 1;
     bulletSpeed = 45;
-    damage = 5;
+    damage = 10;
     ammo = 5;
 
     sprite.setTextureRect(sf::IntRect(3*TEXTURE_WIDTH,0,TEXTURE_WIDTH, TEXTURE_HEIGHT));

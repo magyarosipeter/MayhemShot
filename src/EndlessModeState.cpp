@@ -23,6 +23,9 @@ EndlessModeState::EndlessModeState(StateMachine* stateMachine) {
     enrageSoundBuffer.loadFromFile(ENEMY_ENRAGE_SOUND);
     enrageSound.setBuffer(enrageSoundBuffer);
 
+    enemy1Texture.loadFromFile(ENEMY_1_TEXTURE);
+    enemy2Texture.loadFromFile(ENEMY_2_TEXTURE);
+
     font.loadFromFile(TIMES_FONT);
     playerKills = 0;
     playerScore.setFont(font);
@@ -155,8 +158,13 @@ void EndlessModeState::update(sf::RenderWindow &window, sf::Time deltaTime, bool
     enemySpawnFrames++;
     if (enemySpawnFrames>MIN_ENEMY_SPAWN_TIME && enemies.size()<MAX_ENEMIES) {
         if (rand()%(1+enemies.size()*30)==0) {
-            Enemy enemy;
-            enemies.push_back(enemy);
+            if (rand()%5==0) {
+                Enemy enemy(2, &enemy2Texture);
+                enemies.push_back(enemy);
+            } else {
+                Enemy enemy(1, &enemy1Texture);
+                enemies.push_back(enemy);
+            }
             enemySpawnFrames = 0;
         }
     }
