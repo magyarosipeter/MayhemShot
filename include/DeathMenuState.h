@@ -1,23 +1,28 @@
 #pragma once
 
+#include <SFML/Graphics.hpp>
+
 #include "State.h"
 #include "Button.h"
 #include "Title.h"
-#include "MusicPlayer.h"
+#include "EndlessModeState.h"
 
-class PauseMenuState : public State {
+class DeathMenuState: public State {
 public:
-    PauseMenuState(StateMachine* stateMachine, MusicPlayer* musicPlayer);
+    DeathMenuState(StateMachine* stateMachine, int score, MusicPlayer* musicPlayer);
 
     virtual void update(sf::RenderWindow &window, sf::Time deltaTime, bool &mouseClicked);
 	virtual void draw(sf::RenderWindow& window);
 
 private:
-    Title title;
+    Title youDiedText;
 
-    Button resumeButton;
-    Button optionsButton;
+    Button retryButton;
     Button backToMenuButton;
+
+    sf::Font font;
+    sf::Text score;
 
     MusicPlayer* musicPlayer;
 };
+

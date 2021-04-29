@@ -26,7 +26,7 @@ MainMenuState::MainMenuState(StateMachine* stateMachine) {
 		OPAQUE_GREY,
 		OPAQUE_GREY,
 		sf::Color::White,
-		sf::Color::Magenta
+		SALMON
 	);
 
     multiplayerButton.setAttributes(
@@ -50,7 +50,7 @@ MainMenuState::MainMenuState(StateMachine* stateMachine) {
 		OPAQUE_GREY,
 		OPAQUE_GREY,
 		sf::Color::White,
-		sf::Color::Magenta
+		SALMON
     );
 
     quitButton.setAttributes(
@@ -62,7 +62,7 @@ MainMenuState::MainMenuState(StateMachine* stateMachine) {
 		OPAQUE_GREY,
 		OPAQUE_GREY,
 		sf::Color::White,
-		sf::Color::Magenta
+		SALMON
     );
 }
 

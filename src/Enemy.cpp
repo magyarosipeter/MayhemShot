@@ -10,15 +10,32 @@ Enemy::Enemy(int type, sf::Texture* staticTexture) {
         health = 3;
 
         sprite.setOrigin(sf::Vector2f(hitbox.getSize().x/2, hitbox.getSize().y/2));
+        //normal animation
         leftAnimation.addIntRect(sf::IntRect(0,0,ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
         leftAnimation.addIntRect(sf::IntRect(ENEMY_1_TEXTURE_SIZE,0,ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
         leftAnimation.addIntRect(sf::IntRect(2*ENEMY_1_TEXTURE_SIZE,0,ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
         leftAnimation.addIntRect(sf::IntRect(3*ENEMY_1_TEXTURE_SIZE,0,ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
+        leftAnimation.addIntRect(sf::IntRect(4*ENEMY_1_TEXTURE_SIZE,0,ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
+        //animation with eye closed
+        leftAnimation.addIntRect(sf::IntRect(0,0,ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
+        leftAnimation.addIntRect(sf::IntRect(ENEMY_1_TEXTURE_SIZE,0,ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
+        leftAnimation.addIntRect(sf::IntRect(5*ENEMY_1_TEXTURE_SIZE,0,ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
+        leftAnimation.addIntRect(sf::IntRect(3*ENEMY_1_TEXTURE_SIZE,0,ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
+        leftAnimation.addIntRect(sf::IntRect(4*ENEMY_1_TEXTURE_SIZE,0,ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
 
+        //normal animation
         rightAnimation.addIntRect(sf::IntRect(ENEMY_1_TEXTURE_SIZE,0,-ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
         rightAnimation.addIntRect(sf::IntRect(2*ENEMY_1_TEXTURE_SIZE,0,-ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
         rightAnimation.addIntRect(sf::IntRect(3*ENEMY_1_TEXTURE_SIZE,0,-ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
         rightAnimation.addIntRect(sf::IntRect(4*ENEMY_1_TEXTURE_SIZE,0,-ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
+        rightAnimation.addIntRect(sf::IntRect(5*ENEMY_1_TEXTURE_SIZE,0,-ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
+        //animation with eye closed
+        rightAnimation.addIntRect(sf::IntRect(ENEMY_1_TEXTURE_SIZE,0,-ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
+        rightAnimation.addIntRect(sf::IntRect(2*ENEMY_1_TEXTURE_SIZE,0,-ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
+        rightAnimation.addIntRect(sf::IntRect(6*ENEMY_1_TEXTURE_SIZE,0,-ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
+        rightAnimation.addIntRect(sf::IntRect(4*ENEMY_1_TEXTURE_SIZE,0,-ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
+        rightAnimation.addIntRect(sf::IntRect(5*ENEMY_1_TEXTURE_SIZE,0,-ENEMY_1_TEXTURE_SIZE,ENEMY_1_TEXTURE_SIZE));
+
     } else if (type==2) {
         hitbox.setSize(sf::Vector2f(ENEMY_2_TEXTURE_SIZE, ENEMY_2_TEXTURE_SIZE));
 
@@ -28,17 +45,20 @@ Enemy::Enemy(int type, sf::Texture* staticTexture) {
         leftAnimation.addIntRect(sf::IntRect(ENEMY_2_TEXTURE_SIZE,0,ENEMY_2_TEXTURE_SIZE,ENEMY_2_TEXTURE_SIZE));
         leftAnimation.addIntRect(sf::IntRect(2*ENEMY_2_TEXTURE_SIZE,0,ENEMY_2_TEXTURE_SIZE,ENEMY_2_TEXTURE_SIZE));
         leftAnimation.addIntRect(sf::IntRect(3*ENEMY_2_TEXTURE_SIZE,0,ENEMY_2_TEXTURE_SIZE,ENEMY_2_TEXTURE_SIZE));
+        leftAnimation.addIntRect(sf::IntRect(4*ENEMY_2_TEXTURE_SIZE,0,ENEMY_2_TEXTURE_SIZE,ENEMY_2_TEXTURE_SIZE));
 
         rightAnimation.addIntRect(sf::IntRect(ENEMY_2_TEXTURE_SIZE,0,-ENEMY_2_TEXTURE_SIZE,ENEMY_2_TEXTURE_SIZE));
         rightAnimation.addIntRect(sf::IntRect(2*ENEMY_2_TEXTURE_SIZE,0,-ENEMY_2_TEXTURE_SIZE,ENEMY_2_TEXTURE_SIZE));
         rightAnimation.addIntRect(sf::IntRect(3*ENEMY_2_TEXTURE_SIZE,0,-ENEMY_2_TEXTURE_SIZE,ENEMY_2_TEXTURE_SIZE));
         rightAnimation.addIntRect(sf::IntRect(4*ENEMY_2_TEXTURE_SIZE,0,-ENEMY_2_TEXTURE_SIZE,ENEMY_2_TEXTURE_SIZE));
+        rightAnimation.addIntRect(sf::IntRect(5*ENEMY_2_TEXTURE_SIZE,0,-ENEMY_2_TEXTURE_SIZE,ENEMY_2_TEXTURE_SIZE));
 
     }
     sprite.setOrigin(sf::Vector2f(hitbox.getSize().x/2, hitbox.getSize().y/2));
     hitbox.setFillColor(sf::Color::Magenta);
     hitbox.setOrigin(sf::Vector2f(hitbox.getSize().x/2, hitbox.getSize().y/2));
     hitbox.setPosition(sf::Vector2f(SCREEN_WIDTH/2, 0-hitbox.getSize().y/2));
+    sprite.setPosition(hitbox.getPosition());
 
     if (rand()%2==1) xSpeed = -SIDE_SPEED_ENEMY;
     else xSpeed = SIDE_SPEED_ENEMY;

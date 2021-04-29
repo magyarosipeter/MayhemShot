@@ -29,10 +29,13 @@ public:
 
     //getters
     int getDamage();
+    int getAmmoCount();
     sf::FloatRect globalBounds();
+    sf::Vector2f getPosition();
 
     //setters
     void setWeapon(Weapon* newWeapon);
+    void setPosition(sf::Vector2f position);
 
 private:
     Weapon* weapon;

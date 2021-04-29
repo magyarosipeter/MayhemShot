@@ -19,4 +19,12 @@ private:
 
     Button backButton;
 
+    sf::Texture SFMLTexture;
+    sf::Sprite SFMLSprite;
+    sf::Texture heartTexture;
+    sf::Sprite heartSprite;
+
+    sf::Font font;
+    sf::Text descriptionText;
+    sf::Text creatorText;
 };

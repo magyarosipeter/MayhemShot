@@ -1,8 +1,9 @@
 #include "PauseMenuState.h"
 #include "OptionsState.h"
 
-PauseMenuState::PauseMenuState(StateMachine* stateMachine) {
+PauseMenuState::PauseMenuState(StateMachine* stateMachine, MusicPlayer* musicPlayer) {
     this->stateMachine = stateMachine;
+    this->musicPlayer = musicPlayer;
 
     resumeButton.setAttributes(
         sf::Vector2f(SCREEN_WIDTH*50/100, SCREEN_HEIGHT*35/100),
@@ -13,7 +14,7 @@ PauseMenuState::PauseMenuState(StateMachine* stateMachine) {
         OPAQUE_GREY,
         OPAQUE_GREY,
         sf::Color::White,
-        sf::Color::Magenta
+        SALMON
     );
 
     optionsButton.setAttributes(
@@ -25,7 +26,7 @@ PauseMenuState::PauseMenuState(StateMachine* stateMachine) {
 		OPAQUE_GREY,
 		OPAQUE_GREY,
 		sf::Color::White,
-		sf::Color::Magenta
+		SALMON
     );
 
     backToMenuButton.setAttributes(
@@ -37,7 +38,7 @@ PauseMenuState::PauseMenuState(StateMachine* stateMachine) {
         OPAQUE_GREY,
         OPAQUE_GREY,
         sf::Color::White,
-        sf::Color::Magenta
+        SALMON
     );
 
     title.setAttributes(
@@ -62,6 +63,7 @@ void PauseMenuState::update(sf::RenderWindow &window, sf::Time deltaTime, bool &
         this->stateMachine->pushState(optionsState);
     }
     else if (backToMenuButton.update(transformedMousePos, mouseClicked)) {
+        musicPlayer->stop();
         this->stateMachine->popState(2);
     }
 }

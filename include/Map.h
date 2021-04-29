@@ -10,9 +10,14 @@ public:
     Tile();
     void setAttributes(short int id, sf::Vector2f position, sf::Texture* texture);
     void drawToScreen(sf::RenderWindow &window);
+
+    sf::RectangleShape hitbox;
+
+    //getters
     bool isSolid();
     sf::FloatRect globalBounds();
-    sf::RectangleShape hitbox;
+    short int getId();
+    void setTextureRect(sf::IntRect intRect);
 
 private:
     bool solid;

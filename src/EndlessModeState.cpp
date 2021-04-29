@@ -1,5 +1,4 @@
 #include "EndlessModeState.h"
-#include "PauseMenuState.h"
 #include <sstream>
 
 std::string intToString(int n) {
@@ -23,6 +22,9 @@ EndlessModeState::EndlessModeState(StateMachine* stateMachine) {
     enrageSoundBuffer.loadFromFile(ENEMY_ENRAGE_SOUND);
     enrageSound.setBuffer(enrageSoundBuffer);
 
+    loseSoundBuffer.loadFromFile(LOSE_GAME_SOUND);
+    loseSound.setBuffer(loseSoundBuffer);
+
     enemy1Texture.loadFromFile(ENEMY_1_TEXTURE);
     enemy2Texture.loadFromFile(ENEMY_2_TEXTURE);
 
@@ -31,12 +33,16 @@ EndlessModeState::EndlessModeState(StateMachine* stateMachine) {
     playerScore.setFont(font);
     playerScore.setCharacterSize(40);
     playerScore.setString("Score: 0");
+    ammoCount.setFont(font);
+    ammoCount.setCharacterSize(40);
+    ammoCount.move(sf::Vector2f(0, 45));
+    ammoCount.setString("Ammo: 12");
 
-    music.openFromFile(SONG_1);
-    music.play();
+    backgroundTexture.loadFromFile(GAME_BACKGROUND_TEXTURE);
+    background.setTexture(backgroundTexture);
 }
 
-void deleteProjectiles(std::vector<Projectile> &projectiles, Tile tileMap[MAP_HEIGHT][MAP_WIDTH]) {
+void EndlessModeState::deleteProjectiles() {
     unsigned i=0;
     while ( i<projectiles.size() ) {
 
@@ -56,7 +62,7 @@ void deleteProjectiles(std::vector<Projectile> &projectiles, Tile tileMap[MAP_HE
         else {
             for (int j=0; j<MAP_HEIGHT && !deleted ; j++) {
                 for (int k=0 ; k<MAP_WIDTH && !deleted ; k++) {
-                    if (tileMap[j][k].isSolid() && projectiles[i].hitbox.getGlobalBounds().intersects(tileMap[j][k].hitbox.getGlobalBounds())) {
+                    if (map.tileMap[j][k].isSolid() && projectiles[i].hitbox.getGlobalBounds().intersects(map.tileMap[j][k].hitbox.getGlobalBounds())) {
                         projectiles.erase(projectiles.begin()+i);
                         deleted = true;
                     }
@@ -112,12 +118,38 @@ void EndlessModeState::enemyOutOfBounds() {
     }
 }
 
-void EndlessModeState::update(sf::RenderWindow &window, sf::Time deltaTime, bool &mouseClicked) {
-    //get actual mouse position when window has been resized
-    sf::Vector2i transformedMousePos;
-    transformedMousePos.x = ( ((double)sf::Mouse::getPosition(window).x) / window.getSize().x * 100 ) * SCREEN_WIDTH / 100;
-    transformedMousePos.y = ( ((double)sf::Mouse::getPosition(window).y) / window.getSize().y * 100 ) * SCREEN_HEIGHT / 100;
+void EndlessModeState::playerOutOfBounds() {
+    if (player.getPosition().y > 1.5*SCREEN_HEIGHT) {
+        loseSound.play();
+        DeathMenuState* deathMenuState = new DeathMenuState(this->stateMachine, playerKills, &musicPlayer);
+        this->reset();
+        this->stateMachine->pushState(deathMenuState);
+    }
+}
 
+void EndlessModeState::reset() {
+    projectiles.clear();
+    enemies.clear();
+    Weapon* starterWeapon = new Pistol;
+    player.setWeapon(starterWeapon);
+    player.setPosition(sf::Vector2f(SCREEN_WIDTH/2, SCREEN_HEIGHT/2));
+    playerScore.setString("Score: 0");
+    playerKills = 0;
+}
+
+void EndlessModeState::enemyPlayerCollision() {
+    for (int i=0 ; i<enemies.size() ; i++) {
+        if (enemies[i].globalBounds().intersects(player.globalBounds())) {
+            loseSound.play();
+            DeathMenuState* deathMenuState = new DeathMenuState(this->stateMachine, playerKills, &musicPlayer);
+            this->reset();
+            this->stateMachine->pushState(deathMenuState);
+            break;
+        }
+    }
+}
+
+void EndlessModeState::update(sf::RenderWindow &window, sf::Time deltaTime, bool &mouseClicked) {
     //WASD input, movement and collision
     player.movement(map.tileMap, window);
 
@@ -128,18 +160,15 @@ void EndlessModeState::update(sf::RenderWindow &window, sf::Time deltaTime, bool
     for (unsigned i=0 ; i<projectiles.size() ; i++) projectiles[i].movement();
 
     //move enemies
-    for (unsigned i=0 ; i<enemies.size() ; i++) {
-        enemies[i].movement(map.tileMap, window);
-    }
+    for (unsigned i=0 ; i<enemies.size() ; i++) enemies[i].movement(map.tileMap, window);
     //deal with enemies falling out of the map
     this->enemyOutOfBounds();
 
     //kill enemy and delete projectile that collide with them
     this->killEnemies();
-    //killEnemies(projectiles, enemies, player);
 
     //delete projectiles that collide with solid blocks
-    deleteProjectiles(projectiles, map.tileMap);
+    this->deleteProjectiles();
 
     //player picks up crate for random weapon
     if (player.globalBounds().intersects(weaponCrate.globalBounds())) {
@@ -150,14 +179,14 @@ void EndlessModeState::update(sf::RenderWindow &window, sf::Time deltaTime, bool
 
     //press ESC to open the pause menu
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
-        PauseMenuState* pauseMenuState = new PauseMenuState(this->stateMachine);
+        PauseMenuState* pauseMenuState = new PauseMenuState(this->stateMachine, &this->musicPlayer);
         this->stateMachine->pushState(pauseMenuState);
     }
 
     //spawn enemies
     enemySpawnFrames++;
     if (enemySpawnFrames>MIN_ENEMY_SPAWN_TIME && enemies.size()<MAX_ENEMIES) {
-        if (rand()%(1+enemies.size()*30)==0) {
+        if (rand()%(1+enemies.size()*15)==0) {
             if (rand()%5==0) {
                 Enemy enemy(2, &enemy2Texture);
                 enemies.push_back(enemy);
@@ -168,9 +197,19 @@ void EndlessModeState::update(sf::RenderWindow &window, sf::Time deltaTime, bool
             enemySpawnFrames = 0;
         }
     }
+
+    this->enemyPlayerCollision();
+
+    this->playerOutOfBounds();
+
+    ammoCount.setString("Ammo: "+intToString(player.getAmmoCount()));
+
+    musicPlayer.play();
 }
 
 void EndlessModeState::draw(sf::RenderWindow& window) {
+    window.draw(background);
+
     map.drawToScreen(window);
 
     for(unsigned i=0 ; i<projectiles.size() ; i++) {
@@ -185,4 +224,5 @@ void EndlessModeState::draw(sf::RenderWindow& window) {
     weaponCrate.drawToScreen(window);
 
     window.draw(playerScore);
+    window.draw(ammoCount);
 }

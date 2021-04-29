@@ -1,4 +1,8 @@
-// Kód és ötletek
+// Ötletek
+https://store.steampowered.com/app/291550/Brawlhalla/
+https://store.steampowered.com/app/212800/Super_Crate_Box/
+
+// Kód
 https://gamedevelopment.tutsplus.com/tutorials/finite-state-machines-theory-and-implementation--gamedev-11867
 
 // Assetek

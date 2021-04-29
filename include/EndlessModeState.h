@@ -8,6 +8,9 @@
 #include "Projectile.h"
 #include "Enemy.h"
 #include "WeaponCrate.h"
+#include "MusicPlayer.h"
+#include "PauseMenuState.h"
+#include "DeathMenuState.h"
 
 #define MIN_ENEMY_SPAWN_TIME 60
 #define MAX_ENEMIES 7
@@ -31,6 +34,9 @@ private:
     sf::Sound enemyDieSound;
     sf::SoundBuffer enrageSoundBuffer;
     sf::Sound enrageSound;
+    sf::SoundBuffer loseSoundBuffer;
+    sf::Sound loseSound;
+
     sf::Texture enemy1Texture;
     sf::Texture enemy2Texture;
 
@@ -38,13 +44,21 @@ private:
 
     sf::Font font;
     sf::Text playerScore;
+    sf::Text ammoCount;
     int playerKills;
 
     unsigned enemySpawnFrames;              // counts the frames since an enemy last spawned
 
-    sf::Music music;
+    MusicPlayer musicPlayer;
+
+    sf::Texture backgroundTexture;
+    sf::Sprite background;
 
     //functions
     void killEnemies();
     void enemyOutOfBounds();
+    void playerOutOfBounds();
+    void enemyPlayerCollision();
+    void deleteProjectiles();
+    void reset();
 };

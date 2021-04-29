@@ -6,6 +6,11 @@ Player::Player() {
     hitbox.setPosition(sf::Vector2f(SCREEN_WIDTH/2, SCREEN_HEIGHT/2));
     hitbox.setFillColor(sf::Color::Blue);
 
+    texture = new sf::Texture;
+    texture->loadFromFile(PLAYER_TEXTURE);
+    sprite.setTexture(*this->texture);
+    sprite.setOrigin(sf::Vector2f(hitbox.getSize().x/2, 5));
+
     xSpeed = 0;
     ySpeed = 0;
     falling = false;
@@ -23,6 +28,11 @@ Player::Player() {
     pickUpSound.setBuffer(pickUpSoundBuffer);
 }
 
+int Player::getAmmoCount() {
+    if (weapon!=NULL) {
+        return weapon->getAmmo();
+    } else return 0;
+}
 int Player::getDamage() {
     if (weapon!=NULL) {
         return weapon->getDamage();
@@ -31,7 +41,16 @@ int Player::getDamage() {
 sf::FloatRect Player::globalBounds() {
     return hitbox.getGlobalBounds();
 }
+sf::Vector2f Player::getPosition() {
+    return hitbox.getPosition();
+}
+void Player::setPosition(sf::Vector2f position) {
+    hitbox.setPosition(position);
+    sprite.setPosition(position);
+    weapon->setPosition(sf::Vector2f(hitbox.getPosition().x, hitbox.getPosition().y-hitbox.getSize().y*10/100));
+}
 void Player::setWeapon(Weapon* newWeapon) {
+    //secondary sound finishes shooting sound of last weapon when new one is picked up
     if ( weaponSound.getStatus() == sf::SoundSource::Playing) {
         finishingWeaponSoundBuffer = *weaponSound.getBuffer();
         finishingWeaponSound.setBuffer(finishingWeaponSoundBuffer);
@@ -39,6 +58,8 @@ void Player::setWeapon(Weapon* newWeapon) {
         finishingWeaponSound.setPlayingOffset(weaponSound.getPlayingOffset());
         finishingWeaponSound.play();
     }
+
+    delete this->weapon;
 
     this->weapon = newWeapon;
     if (this->weapon->getType()=="Pistol") {
@@ -127,10 +148,7 @@ void Player::movement(Tile tileMap[MAP_HEIGHT][MAP_WIDTH], sf::RenderWindow &win
     }
 
     // out of bounds fix
-    if (hitbox.getPosition().y>SCREEN_HEIGHT*2) {
-        hitbox.setPosition(sf::Vector2f(SCREEN_WIDTH/2, SCREEN_HEIGHT/2));
-        ySpeed = 0;
-    } else if ( hitbox.getPosition().y-hitbox.getSize().y/2 < 0 ) {
+    if ( hitbox.getPosition().y-hitbox.getSize().y/2 < 0 ) {
         hitbox.setPosition(hitbox.getPosition().x, hitbox.getSize().y/2 );
         ySpeed = 0;
     }
@@ -155,6 +173,7 @@ void Player::movement(Tile tileMap[MAP_HEIGHT][MAP_WIDTH], sf::RenderWindow &win
     if (weapon!=NULL) {
         weapon->setPosition(sf::Vector2f(hitbox.getPosition().x, hitbox.getPosition().y-hitbox.getSize().y*10/100));
     }
+    sprite.setPosition(hitbox.getPosition());
 }
 
 void Player::shoot(std::vector<Projectile> &projectiles) {
@@ -186,6 +205,7 @@ void Player::playPickupSound() {
 
 void Player::drawToScreen(sf::RenderWindow &window) {
     window.draw(hitbox);
+    window.draw(sprite);
     if(weapon!=NULL) {
         weapon->drawToScreen(window);
     }

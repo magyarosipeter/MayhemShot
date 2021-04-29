@@ -420,9 +420,9 @@
 	<iostream>
 	"MoreInfo.h"
 
-1619397788 d:\codeblocks\szakvizsgacb\include\moreinfo.h
+1619649500 d:\codeblocks\szakvizsgacb\include\moreinfo.h
 
-1619206953 source:d:\codeblocks\szakvizsgacb\src\mainmenustate.cpp
+1619649081 source:d:\codeblocks\szakvizsgacb\src\mainmenustate.cpp
 	"MainMenuState.h"
 	"OptionsState.h"
 	"EndlessModeState.h"
@@ -456,10 +456,10 @@
 	"StateMachine.h"
 	"MainMenuState.h"
 
-1618852444 source:d:\codeblocks\szakvizsgacb\src\optionsstate.cpp
+1619649604 source:d:\codeblocks\szakvizsgacb\src\optionsstate.cpp
 	"OptionsState.h"
 
-1619090926 d:\codeblocks\szakvizsgacb\include\optionsstate.h
+1619648203 d:\codeblocks\szakvizsgacb\include\optionsstate.h
 	<SFML/Graphics.hpp>
 	"MoreInfo.h"
 	"State.h"
@@ -474,12 +474,11 @@
 1618834256 source:d:\codeblocks\szakvizsgacb\src\title.cpp
 	"Title.h"
 
-1619397922 source:d:\codeblocks\szakvizsgacb\src\endlessmodestate.cpp
+1619651815 source:d:\codeblocks\szakvizsgacb\src\endlessmodestate.cpp
 	"EndlessModeState.h"
-	"PauseMenuState.h"
 	<sstream>
 
-1619397749 d:\codeblocks\szakvizsgacb\include\endlessmodestate.h
+1619651712 d:\codeblocks\szakvizsgacb\include\endlessmodestate.h
 	<SFML/Graphics.hpp>
 	"MoreInfo.h"
 	"State.h"
@@ -488,6 +487,9 @@
 	"Projectile.h"
 	"Enemy.h"
 	"WeaponCrate.h"
+	"MusicPlayer.h"
+	"PauseMenuState.h"
+	"DeathMenuState.h"
 
 1618844158 source:d:\codeblocks\szakvizsgacb\src\entity.cpp
 	"Entity.h"
@@ -496,10 +498,10 @@
 	<SFML/Graphics.hpp>
 	"Map.h"
 
-1619385510 source:d:\codeblocks\szakvizsgacb\src\player.cpp
+1619651847 source:d:\codeblocks\szakvizsgacb\src\player.cpp
 	"Player.h"
 
-1619385403 d:\codeblocks\szakvizsgacb\include\player.h
+1619651586 d:\codeblocks\szakvizsgacb\include\player.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<iostream>
@@ -510,21 +512,22 @@
 	"Weapon.h"
 	"Projectile.h"
 
-1619288249 source:d:\codeblocks\szakvizsgacb\src\map.cpp
+1619644115 source:d:\codeblocks\szakvizsgacb\src\map.cpp
 	"Map.h"
 
-1619037595 d:\codeblocks\szakvizsgacb\include\map.h
+1619564416 d:\codeblocks\szakvizsgacb\include\map.h
 	<fstream>
 	<iostream>
 	<SFML/Graphics.hpp>
 	"MoreInfo.h"
 
-1619354923 d:\codeblocks\szakvizsgacb\include\pausemenustate.h
+1619640282 d:\codeblocks\szakvizsgacb\include\pausemenustate.h
 	"State.h"
 	"Button.h"
 	"Title.h"
+	"MusicPlayer.h"
 
-1619354951 source:d:\codeblocks\szakvizsgacb\src\pausemenustate.cpp
+1619649651 source:d:\codeblocks\szakvizsgacb\src\pausemenustate.cpp
 	"PauseMenuState.h"
 	"OptionsState.h"
 
@@ -545,7 +548,7 @@
 1619354464 source:d:\codeblocks\szakvizsgacb\src\projectile.cpp
 	"Projectile.h"
 
-1619397714 source:d:\codeblocks\szakvizsgacb\src\enemy.cpp
+1619646120 source:d:\codeblocks\szakvizsgacb\src\enemy.cpp
 	"Enemy.h"
 
 1619397732 d:\codeblocks\szakvizsgacb\include\enemy.h
@@ -673,4 +676,22 @@
 
 1619395104 source:d:\codeblocks\szakvizsgacb\src\animation.cpp
 	"Animation.h"
+
+1619441714 d:\codeblocks\szakvizsgacb\include\musicplayer.h
+	<SFML/Audio.hpp>
+	"MoreInfo.h"
+
+1619441705 source:d:\codeblocks\szakvizsgacb\src\musicplayer.cpp
+	"MusicPlayer.h"
+
+1619649631 source:d:\codeblocks\szakvizsgacb\src\deathmenustate.cpp
+	"DeathMenuState.h"
+	<sstream>
+
+1619441767 d:\codeblocks\szakvizsgacb\include\deathmenustate.h
+	<SFML/Graphics.hpp>
+	"State.h"
+	"Button.h"
+	"Title.h"
+	"EndlessModeState.h"
 

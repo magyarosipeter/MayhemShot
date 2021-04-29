@@ -52,7 +52,9 @@
 			<Add library="dxguid" />
 			<Add directory="D:/CodeBlocks SFML-2.5.1/lib" />
 		</Linker>
+		<Unit filename="include/Animation.h" />
 		<Unit filename="include/Button.h" />
+		<Unit filename="include/DeathMenuState.h" />
 		<Unit filename="include/EndlessModeState.h" />
 		<Unit filename="include/Enemy.h" />
 		<Unit filename="include/Entity.h" />
@@ -60,6 +62,7 @@
 		<Unit filename="include/MainMenuState.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MoreInfo.h" />
+		<Unit filename="include/MusicPlayer.h" />
 		<Unit filename="include/OptionsState.h" />
 		<Unit filename="include/PauseMenuState.h" />
 		<Unit filename="include/Player.h" />
@@ -71,12 +74,15 @@
 		<Unit filename="include/WeaponCrate.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="resources/maps/map1.in" />
+		<Unit filename="src/Animation.cpp" />
 		<Unit filename="src/Button.cpp" />
+		<Unit filename="src/DeathMenuState.cpp" />
 		<Unit filename="src/EndlessModeState.cpp" />
 		<Unit filename="src/Enemy.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/MainMenuState.cpp" />
 		<Unit filename="src/Map.cpp" />
+		<Unit filename="src/MusicPlayer.cpp" />
 		<Unit filename="src/OptionsState.cpp" />
 		<Unit filename="src/PauseMenuState.cpp" />
 		<Unit filename="src/Player.cpp" />
