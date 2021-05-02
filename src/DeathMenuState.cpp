@@ -49,6 +49,29 @@ DeathMenuState::DeathMenuState(StateMachine* stateMachine, int score, MusicPlaye
         sf::Color::White,
         SALMON
     );
+
+    newHighscoreText.setAttributes(
+        sf::Vector2f(SCREEN_WIDTH/2,SCREEN_HEIGHT*48/100),
+        "New highscore!",
+        20,
+        TIMES_FONT,
+        sf::Color::White
+    );
+
+    //read data from options, if latest score is bigger than highscore, we change it in the files
+    unsigned highScore;
+    unsigned volume;
+    std::ifstream fin(OPTIONS_DATA);
+    fin >> volume >> highScore;
+    fin.close();
+    if (highScore<score) {
+        std::ofstream fout(OPTIONS_DATA);
+        fout << volume <<" "<< score;
+        highScoreVisible = true;
+    }
+    else {
+        highScoreVisible = false;
+    }
 }
 
 void DeathMenuState::update(sf::RenderWindow &window, sf::Time deltaTime, bool &mouseClicked) {
@@ -63,6 +86,10 @@ void DeathMenuState::update(sf::RenderWindow &window, sf::Time deltaTime, bool &
         musicPlayer->stop();
         stateMachine->popState(2);
     }
+
+    if (highScoreVisible) {
+        newHighscoreText.animation();
+    }
 }
 
 void DeathMenuState:: draw(sf::RenderWindow& window) {
@@ -71,4 +98,8 @@ void DeathMenuState:: draw(sf::RenderWindow& window) {
 
     retryButton.drawToScreen(window);
     backToMenuButton.drawToScreen(window);
+
+    if (highScoreVisible) {
+        newHighscoreText.drawToScreen(window);
+    }
 }

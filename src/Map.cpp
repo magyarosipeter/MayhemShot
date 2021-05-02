@@ -57,10 +57,10 @@ Map::Map() {
 
 }
 
-void Map::loadMap(std::string textureLocation) {
+void Map::loadMap(std::string textureLocation, std::string mapLocation) {
     spriteSheet.loadFromFile(textureLocation);
     pSpriteSheet = &spriteSheet;
-    std::ifstream fin("resources/maps/map1.in");
+    std::ifstream fin(mapLocation.c_str());
     for (int i=0 ; i<MAP_HEIGHT ; i++) {
         for (int j=0 ; j<MAP_WIDTH ; j++) {
             short int szam;

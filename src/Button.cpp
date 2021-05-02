@@ -58,7 +58,7 @@ bool Button::update(sf::Vector2i mousePosition, bool &mouseClicked) {
 		this->text.setCharacterSize(idleSize);
 	}
 
-	this->text.setOrigin(this->text.getGlobalBounds().width / 2, this->text.getGlobalBounds().height / 2);
+	this->text.setOrigin(this->text.getGlobalBounds().width / 2, idleSize/2);
     this->text.setPosition(rectangle.getPosition());
 
     if (buttonState==BTN_ACTIVE) {

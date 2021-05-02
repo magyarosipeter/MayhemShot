@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Audio.hpp>
+#include <algorithm>
 
 #include "MoreInfo.h"
 
@@ -9,6 +10,7 @@ public:
     MusicPlayer();
     void play();
     void stop();
+    void setVolume(int percentage);
 
 private:
     sf::Music music;

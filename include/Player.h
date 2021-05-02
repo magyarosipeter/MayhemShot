@@ -30,6 +30,7 @@ public:
     //getters
     int getDamage();
     int getAmmoCount();
+    int getMaxAmmoCount();
     sf::FloatRect globalBounds();
     sf::Vector2f getPosition();
 

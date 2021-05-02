@@ -13,6 +13,13 @@ Weapon::Weapon() {
 int Weapon::getAmmo() {
     return ammo;
 }
+int Weapon::getMaxAmmo() {
+    if (type=="Pistol") return 12;
+    else if (type=="Shotgun") return 6;
+    else if (type=="Rifle") return 25;
+    else if (type=="Sniper") return 5;
+    else return -1;
+}
 void Weapon::setAmmo(int value) {
     ammo = value;
 }
@@ -95,7 +102,7 @@ Pistol::Pistol() {
     numberOfPellets = 1;
     bulletSpeed = 14;
     damage = 2;
-    ammo = 10;
+    ammo = 12;
 
     sprite.setTextureRect(sf::IntRect(0,0,TEXTURE_WIDTH, TEXTURE_HEIGHT));
     sprite.setScale(sf::Vector2f(0.5f, 0.5f));
@@ -103,7 +110,7 @@ Pistol::Pistol() {
 
 Shotgun::Shotgun() {
     type = "Shotgun";
-    cooldownFrames = 50;
+    cooldownFrames = 40;
     spread = 12;
     numberOfPellets = 5;
     bulletSpeed = 10;
@@ -118,19 +125,16 @@ Rifle::Rifle() {
     cooldownFrames = 8;
     spread = 5;
     numberOfPellets = 1;
-    bulletSpeed = 16;
+    bulletSpeed = 17;
     damage = 1;
-    ammo = 21;
+    ammo = 25;
 
     sprite.setTextureRect(sf::IntRect(2*TEXTURE_WIDTH,0,TEXTURE_WIDTH, TEXTURE_HEIGHT));
 }
-/*Rifle::~Rifle() {
-    //
-}*/
 
 Sniper::Sniper() {
     type = "Sniper";
-    cooldownFrames = 75;
+    cooldownFrames = 70;
     spread = 1;
     numberOfPellets = 1;
     bulletSpeed = 45;
@@ -139,6 +143,3 @@ Sniper::Sniper() {
 
     sprite.setTextureRect(sf::IntRect(3*TEXTURE_WIDTH,0,TEXTURE_WIDTH, TEXTURE_HEIGHT));
 }
-/*Sniper::~Sniper() {
-    //
-}*/

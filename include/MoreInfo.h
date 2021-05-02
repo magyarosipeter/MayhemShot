@@ -8,11 +8,17 @@
 #define MAP_WIDTH 20
 
 #define MAP_TILE_SIZE 64
-
-#define PI 3.14159
-
 #define ENEMY_1_TEXTURE_SIZE 50
 #define ENEMY_2_TEXTURE_SIZE 80
+
+//Maths
+#define PI 3.14159
+
+//Font
+#define TIMES_FONT "resources/fonts/Crimson-Roman.ttf"
+
+//Options data
+#define OPTIONS_DATA "resources/data/options.dat"
 
 //Variables
 #define GRAVITY 3
@@ -27,10 +33,15 @@
 #define OPAQUE_RED sf::Color(255, 0, 0, 225)
 #define SALMON sf::Color(237, 112, 81, 255)
 
-//Font
-#define TIMES_FONT "resources/fonts/Crimson-Roman.ttf"
+#define MULTIPLAYER_TIMEOUT sf::seconds(1.0f)
+
+//Maps
+#define SP_MAP1 "resources/maps/map1.in"
+#define MP_MAP1 "resources/maps/map2.in"
 
 //Textures
+#define GAME_ICON_TEXTURE "icon.png"
+
 #define MENU_BACKGROUND_TEXTURE "resources/images/Background_01.png"
 #define OPTIONS_BACKGROUND_TEXTURE "resources/images/Background_02.png"
 #define GAME_BACKGROUND_TEXTURE "resources/images/Background_03.png"
@@ -43,6 +54,8 @@
 #define ENEMY_2_TEXTURE "resources/images/enemy2.png"
 
 #define PLAYER_TEXTURE "resources/images/player.png"
+
+#define FIRE_TEXTURE "resources/images/fire.png"
 
 #define SFML_TEXTURE "resources/images/SFML_logo.png"
 #define HEART_TEXTURE "resources/images/heart.png"

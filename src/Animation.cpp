@@ -17,6 +17,10 @@ void Animation::advanceAnimation() {
     }
 }
 
+void Animation::setSwitchFrameValue(unsigned switchFrameValue) {
+    this->switchFrameValue = switchFrameValue;
+}
+
 void Animation::addIntRect(sf::IntRect newIntRect) {
     frames.push_back(newIntRect);
 }

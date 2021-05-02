@@ -30,7 +30,7 @@ class Map {
 public:
     Map();
     Tile tileMap[13][20];
-    void loadMap(std::string textureLocation);
+    void loadMap(std::string textureLocation, std::string mapLocation);
     void drawToScreen(sf::RenderWindow &window);
 
 private:

@@ -1,6 +1,9 @@
 #pragma once
 
+#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
 #include <iostream>
+#include <fstream>
 
 #include "MoreInfo.h"
 #include "StateMachine.h"
@@ -14,6 +17,7 @@ public:
 
 private:
     sf::RenderWindow window;
+    sf::Image windowIcon;
 
     StateMachine gameState;
 

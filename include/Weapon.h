@@ -11,7 +11,6 @@
 class Weapon {
 public:
     Weapon();
-    //virtual ~Weapon() = 0;
 
     //main function to call
     void shoot(std::vector<Projectile> &projectiles, float rotation);
@@ -24,6 +23,7 @@ public:
 
     //getters
     int getAmmo();
+    int getMaxAmmo();
     int getDamage();
     std::string getType();
     unsigned getCooldownFrames();
@@ -48,23 +48,19 @@ protected:
 class Pistol: public Weapon {
 public:
     Pistol();
-    //~Pistol();
 };
 
 class Shotgun: public Weapon {
 public:
     Shotgun();
-    //~Shotgun();
 };
 
 class Rifle: public Weapon {
 public:
     Rifle();
-    //~Rifle();
 };
 
 class Sniper: public Weapon {
 public:
     Sniper();
-    //~Sniper();
 };

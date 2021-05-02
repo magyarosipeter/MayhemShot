@@ -1,9 +1,9 @@
 #include "MusicPlayer.h"
 
 MusicPlayer::MusicPlayer() {
-    songFiles.push_back(SONG_2);
     songFiles.push_back(SONG_1);
-    index=0;
+    songFiles.push_back(SONG_2);
+    index = rand()%2;
     music.openFromFile(songFiles[index]);
     music.play();
     music.setVolume(50.f);
@@ -23,5 +23,9 @@ void MusicPlayer::play() {
 
 void MusicPlayer::stop() {
     music.stop();
+}
+
+void MusicPlayer::setVolume(int percentage) {
+    music.setVolume(percentage);
 }
 

@@ -10,7 +10,7 @@ std::string intToString(int n) {
 EndlessModeState::EndlessModeState(StateMachine* stateMachine) {
     this->stateMachine = stateMachine;
 
-    map.loadMap(GROUND_TILES_TEXTURE);
+    map.loadMap(GROUND_TILES_TEXTURE, SP_MAP1);
     weaponCrate.setRandomPosition(map.tileMap);
 
     //spawning an enemy is possible straight away when starting the game
@@ -35,11 +35,27 @@ EndlessModeState::EndlessModeState(StateMachine* stateMachine) {
     playerScore.setString("Score: 0");
     ammoCount.setFont(font);
     ammoCount.setCharacterSize(40);
-    ammoCount.move(sf::Vector2f(0, 45));
-    ammoCount.setString("Ammo: 12");
+    ammoCount.setString("Ammo: 12/12");
+    ammoCount.setPosition(sf::Vector2f(SCREEN_WIDTH-ammoCount.getGlobalBounds().width*1.1, SCREEN_HEIGHT-ammoCount.getGlobalBounds().height*1.5));
 
     backgroundTexture.loadFromFile(GAME_BACKGROUND_TEXTURE);
     background.setTexture(backgroundTexture);
+
+    fireTexture.loadFromFile(FIRE_TEXTURE);
+    for (int i=0 ; i<8 ; i++) {
+        fireAnimation.addIntRect(sf::IntRect(i*MAP_TILE_SIZE, 0, MAP_TILE_SIZE, MAP_TILE_SIZE));
+    }
+    fireAnimation.setSwitchFrameValue(6);
+
+    fireLeft.setTexture(fireTexture);
+    fireLeft.setTextureRect(fireAnimation.getCurrentIntRect());
+    fireLeft.setOrigin(MAP_TILE_SIZE/2, MAP_TILE_SIZE/2);
+    fireLeft.setPosition(sf::Vector2f(9*MAP_TILE_SIZE+MAP_TILE_SIZE/2, MAP_HEIGHT*MAP_TILE_SIZE-MAP_TILE_SIZE/2));
+
+    fireRight.setTexture(fireTexture);
+    fireRight.setTextureRect(fireAnimation.getCurrentIntRect());
+    fireRight.setOrigin(MAP_TILE_SIZE/2, MAP_TILE_SIZE/2);
+    fireRight.setPosition(sf::Vector2f(10*MAP_TILE_SIZE+MAP_TILE_SIZE/2, MAP_HEIGHT*MAP_TILE_SIZE-MAP_TILE_SIZE/2));
 }
 
 void EndlessModeState::deleteProjectiles() {
@@ -119,7 +135,7 @@ void EndlessModeState::enemyOutOfBounds() {
 }
 
 void EndlessModeState::playerOutOfBounds() {
-    if (player.getPosition().y > 1.5*SCREEN_HEIGHT) {
+    if (player.getPosition().y > SCREEN_HEIGHT+player.globalBounds().height/2) {
         loseSound.play();
         DeathMenuState* deathMenuState = new DeathMenuState(this->stateMachine, playerKills, &musicPlayer);
         this->reset();
@@ -202,7 +218,11 @@ void EndlessModeState::update(sf::RenderWindow &window, sf::Time deltaTime, bool
 
     this->playerOutOfBounds();
 
-    ammoCount.setString("Ammo: "+intToString(player.getAmmoCount()));
+    ammoCount.setString("Ammo: "+intToString(player.getAmmoCount()) + "/" + intToString(player.getMaxAmmoCount() ) );
+
+    fireAnimation.advanceAnimation();
+    fireLeft.setTextureRect(fireAnimation.getCurrentIntRect());
+    fireRight.setTextureRect(fireAnimation.getCurrentIntRect());
 
     musicPlayer.play();
 }
@@ -211,6 +231,9 @@ void EndlessModeState::draw(sf::RenderWindow& window) {
     window.draw(background);
 
     map.drawToScreen(window);
+
+    window.draw(fireLeft);
+    window.draw(fireRight);
 
     for(unsigned i=0 ; i<projectiles.size() ; i++) {
         projectiles[i].drawToScreen(window);

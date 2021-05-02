@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1619306022 source:d:\codeblocks\szakvizsgacb\main.cpp
+1619778564 source:d:\codeblocks\szakvizsgacb\main.cpp
 	<ctime>
 	"Game.h"
 
@@ -412,7 +412,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1618852010 source:d:\codeblocks\szakvizsgacb\src\button.cpp
+1619903556 source:d:\codeblocks\szakvizsgacb\src\button.cpp
 	"Button.h"
 
 1618844263 d:\codeblocks\szakvizsgacb\include\button.h
@@ -420,50 +420,58 @@
 	<iostream>
 	"MoreInfo.h"
 
-1619649500 d:\codeblocks\szakvizsgacb\include\moreinfo.h
+1619913226 d:\codeblocks\szakvizsgacb\include\moreinfo.h
 
-1619649081 source:d:\codeblocks\szakvizsgacb\src\mainmenustate.cpp
+1619909675 source:d:\codeblocks\szakvizsgacb\src\mainmenustate.cpp
 	"MainMenuState.h"
 	"OptionsState.h"
 	"EndlessModeState.h"
+	"MultiplayerMenuState.h"
 	<iostream>
 
-1619090932 d:\codeblocks\szakvizsgacb\include\mainmenustate.h
+1619959036 d:\codeblocks\szakvizsgacb\include\mainmenustate.h
 	<SFML/Graphics.hpp>
 	"MoreInfo.h"
 	"State.h"
 	"Button.h"
 	"Title.h"
 
-1619090924 d:\codeblocks\szakvizsgacb\include\state.h
+1619951454 d:\codeblocks\szakvizsgacb\include\state.h
 	<SFML/Graphics.hpp>
 	"StateMachine.h"
 
-1619207242 source:d:\codeblocks\szakvizsgacb\src\statemachine.cpp
+1619952032 source:d:\codeblocks\szakvizsgacb\src\statemachine.cpp
 	"StateMachine.h"
 
-1619207220 d:\codeblocks\szakvizsgacb\include\statemachine.h
+1619952057 d:\codeblocks\szakvizsgacb\include\statemachine.h
 	<stack>
 	"MoreInfo.h"
 	"State.h"
 
-1619353956 source:d:\codeblocks\szakvizsgacb\src\game.cpp
+1619952624 source:d:\codeblocks\szakvizsgacb\src\game.cpp
 	"Game.h"
 
-1619342949 d:\codeblocks\szakvizsgacb\include\game.h
+1619913034 d:\codeblocks\szakvizsgacb\include\game.h
+	<SFML/Audio.hpp>
+	<SFML/Graphics.hpp>
 	<iostream>
+	<fstream>
 	"MoreInfo.h"
 	"StateMachine.h"
 	"MainMenuState.h"
 
-1619649604 source:d:\codeblocks\szakvizsgacb\src\optionsstate.cpp
+1619880361 source:d:\codeblocks\szakvizsgacb\src\optionsstate.cpp
 	"OptionsState.h"
 
-1619648203 d:\codeblocks\szakvizsgacb\include\optionsstate.h
+1619880313 d:\codeblocks\szakvizsgacb\include\optionsstate.h
 	<SFML/Graphics.hpp>
+	<fstream>
 	"MoreInfo.h"
 	"State.h"
+	"SlideBar.h"
 	"Button.h"
+	"Title.h"
+	"MusicPlayer.h"
 
 1618834094 d:\codeblocks\szakvizsgacb\include\title.h
 	<SFML/Graphics.hpp>
@@ -474,11 +482,11 @@
 1618834256 source:d:\codeblocks\szakvizsgacb\src\title.cpp
 	"Title.h"
 
-1619651815 source:d:\codeblocks\szakvizsgacb\src\endlessmodestate.cpp
+1619899742 source:d:\codeblocks\szakvizsgacb\src\endlessmodestate.cpp
 	"EndlessModeState.h"
 	<sstream>
 
-1619651712 d:\codeblocks\szakvizsgacb\include\endlessmodestate.h
+1619978285 d:\codeblocks\szakvizsgacb\include\endlessmodestate.h
 	<SFML/Graphics.hpp>
 	"MoreInfo.h"
 	"State.h"
@@ -498,10 +506,10 @@
 	<SFML/Graphics.hpp>
 	"Map.h"
 
-1619651847 source:d:\codeblocks\szakvizsgacb\src\player.cpp
+1619806646 source:d:\codeblocks\szakvizsgacb\src\player.cpp
 	"Player.h"
 
-1619651586 d:\codeblocks\szakvizsgacb\include\player.h
+1619806416 d:\codeblocks\szakvizsgacb\include\player.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<iostream>
@@ -512,32 +520,32 @@
 	"Weapon.h"
 	"Projectile.h"
 
-1619644115 source:d:\codeblocks\szakvizsgacb\src\map.cpp
+1619815284 source:d:\codeblocks\szakvizsgacb\src\map.cpp
 	"Map.h"
 
-1619564416 d:\codeblocks\szakvizsgacb\include\map.h
+1619814620 d:\codeblocks\szakvizsgacb\include\map.h
 	<fstream>
 	<iostream>
 	<SFML/Graphics.hpp>
 	"MoreInfo.h"
 
-1619640282 d:\codeblocks\szakvizsgacb\include\pausemenustate.h
+1619880180 d:\codeblocks\szakvizsgacb\include\pausemenustate.h
 	"State.h"
 	"Button.h"
 	"Title.h"
 	"MusicPlayer.h"
 
-1619649651 source:d:\codeblocks\szakvizsgacb\src\pausemenustate.cpp
+1619880251 source:d:\codeblocks\szakvizsgacb\src\pausemenustate.cpp
 	"PauseMenuState.h"
 	"OptionsState.h"
 
-1619376380 d:\codeblocks\szakvizsgacb\include\weapon.h
+1619972364 d:\codeblocks\szakvizsgacb\include\weapon.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"MoreInfo.h"
 	"Projectile.h"
 
-1619397606 source:d:\codeblocks\szakvizsgacb\src\weapon.cpp
+1619972239 source:d:\codeblocks\szakvizsgacb\src\weapon.cpp
 	"Weapon.h"
 
 1619354445 d:\codeblocks\szakvizsgacb\include\projectile.h
@@ -671,27 +679,154 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1619394942 d:\codeblocks\szakvizsgacb\include\animation.h
+1619899329 d:\codeblocks\szakvizsgacb\include\animation.h
 	<SFML/Graphics.hpp>
 
-1619395104 source:d:\codeblocks\szakvizsgacb\src\animation.cpp
+1619899362 source:d:\codeblocks\szakvizsgacb\src\animation.cpp
 	"Animation.h"
 
-1619441714 d:\codeblocks\szakvizsgacb\include\musicplayer.h
+1619900794 d:\codeblocks\szakvizsgacb\include\musicplayer.h
 	<SFML/Audio.hpp>
+	<algorithm>
 	"MoreInfo.h"
 
-1619441705 source:d:\codeblocks\szakvizsgacb\src\musicplayer.cpp
+1619970424 source:d:\codeblocks\szakvizsgacb\src\musicplayer.cpp
 	"MusicPlayer.h"
 
-1619649631 source:d:\codeblocks\szakvizsgacb\src\deathmenustate.cpp
+1619880819 source:d:\codeblocks\szakvizsgacb\src\deathmenustate.cpp
 	"DeathMenuState.h"
 	<sstream>
 
-1619441767 d:\codeblocks\szakvizsgacb\include\deathmenustate.h
+1619880630 d:\codeblocks\szakvizsgacb\include\deathmenustate.h
 	<SFML/Graphics.hpp>
+	<fstream>
 	"State.h"
 	"Button.h"
 	"Title.h"
 	"EndlessModeState.h"
+
+1619780712 d:\codeblocks\szakvizsgacb\include\slidebar.h
+	<SFML/Graphics.hpp>
+	<string>
+	<sstream>
+	"MoreInfo.h"
+
+1619780698 source:d:\codeblocks\szakvizsgacb\src\slidebar.cpp
+	"SlideBar.h"
+
+1619783041 source:d:\codeblocks\szakvizsgacb\src\multiplayermenu.cpp
+	"MultiplayerMenu.h"
+
+1619783130 d:\codeblocks\szakvizsgacb\include\multiplayermenu.h
+	<SFML/Graphics.hpp>
+	"State.h"
+
+1619812322 d:\codeblocks\szakvizsgacb\include\multiplayermenustate.h
+	<SFML/Graphics.hpp>
+	<SFML/Network.hpp>
+	"State.h"
+	"TextBox.h"
+	"Button.h"
+	"Title.h"
+	<iostream>
+	<string>
+
+1619816283 source:d:\codeblocks\szakvizsgacb\src\multiplayermenustate.cpp
+	"MultiplayerMenuState.h"
+	"MultiplayerModeState.h"
+
+1619804228 d:\codeblocks\szakvizsgacb\include\textbox.h
+	<SFML/Graphics.hpp>
+	"MoreInfo.h"
+	<iostream>
+
+1619804254 source:d:\codeblocks\szakvizsgacb\src\textbox.cpp
+	"TextBox.h"
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\network.hpp
+	<SFML/System.hpp>
+	<SFML/Network/Ftp.hpp>
+	<SFML/Network/Http.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<SFML/Network/Packet.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/Network/SocketHandle.hpp>
+	<SFML/Network/SocketSelector.hpp>
+	<SFML/Network/TcpListener.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/Network/UdpSocket.hpp>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\network\ftp.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\network\export.hpp
+	<SFML/Config.hpp>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\network\tcpsocket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/System/Time.hpp>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\network\socket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/SocketHandle.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<vector>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\network\sockethandle.hpp
+	<SFML/Config.hpp>
+	<basetsd.h>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\network\http.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<map>
+	<string>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\network\ipaddress.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/System/Time.hpp>
+	<istream>
+	<ostream>
+	<string>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\network\packet.hpp
+	<SFML/Network/Export.hpp>
+	<string>
+	<vector>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\network\socketselector.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\network\tcplistener.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/Network/IpAddress.hpp>
+
+1525812018 d:\codeblocks sfml-2.5.1\include\sfml\network\udpsocket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<vector>
+
+1619975602 source:d:\codeblocks\szakvizsgacb\src\multiplayermodestate.cpp
+	"MultiplayerModeState.h"
+
+1619986617 d:\codeblocks\szakvizsgacb\include\multiplayermodestate.h
+	<SFML/Graphics.hpp>
+	<SFML/Network.hpp>
+	"State.h"
+	"StateMachine.h"
+	"Map.h"
+	"Player.h"
+	<iostream>
 

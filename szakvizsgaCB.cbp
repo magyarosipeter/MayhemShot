@@ -20,6 +20,7 @@
 					<Add library="sfml-window-d" />
 					<Add library="sfml-system-d" />
 					<Add library="sfml-audio-d" />
+					<Add library="sfml-network-d" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -37,6 +38,7 @@
 					<Add library="sfml-window" />
 					<Add library="sfml-system" />
 					<Add library="sfml-audio" />
+					<Add library="sfml-network" />
 				</Linker>
 			</Target>
 		</Build>
@@ -62,18 +64,24 @@
 		<Unit filename="include/MainMenuState.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MoreInfo.h" />
+		<Unit filename="include/MultiplayerMenuState.h" />
+		<Unit filename="include/MultiplayerModeState.h" />
 		<Unit filename="include/MusicPlayer.h" />
 		<Unit filename="include/OptionsState.h" />
 		<Unit filename="include/PauseMenuState.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Projectile.h" />
+		<Unit filename="include/SlideBar.h" />
 		<Unit filename="include/State.h" />
 		<Unit filename="include/StateMachine.h" />
+		<Unit filename="include/TextBox.h" />
 		<Unit filename="include/Title.h" />
 		<Unit filename="include/Weapon.h" />
 		<Unit filename="include/WeaponCrate.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="resources/data/options.dat" />
 		<Unit filename="resources/maps/map1.in" />
+		<Unit filename="resources/maps/map2.in" />
 		<Unit filename="src/Animation.cpp" />
 		<Unit filename="src/Button.cpp" />
 		<Unit filename="src/DeathMenuState.cpp" />
@@ -82,12 +90,16 @@
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/MainMenuState.cpp" />
 		<Unit filename="src/Map.cpp" />
+		<Unit filename="src/MultiplayerMenuState.cpp" />
+		<Unit filename="src/MultiplayerModeState.cpp" />
 		<Unit filename="src/MusicPlayer.cpp" />
 		<Unit filename="src/OptionsState.cpp" />
 		<Unit filename="src/PauseMenuState.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Projectile.cpp" />
+		<Unit filename="src/SlideBar.cpp" />
 		<Unit filename="src/StateMachine.cpp" />
+		<Unit filename="src/TextBox.cpp" />
 		<Unit filename="src/Title.cpp" />
 		<Unit filename="src/Weapon.cpp" />
 		<Unit filename="src/WeaponCrate.cpp" />

@@ -14,9 +14,14 @@ public:
 	virtual void update(sf::RenderWindow &window, sf::Time deltaTime, bool &mouseClicked);
 	virtual void draw(sf::RenderWindow& window);
 
+	virtual void handleEvents(sf::Event &event) {};
+
 private:
     sf::Sprite background;
     sf::Texture backgroundTexture;
+
+    sf::Font font;
+    sf::Text version;
 
     Title title;
 
@@ -24,5 +29,8 @@ private:
 	Button multiplayerButton;
 	Button optionsButton;
     Button quitButton;
+
+    bool developerMode;
+    sf::Text developerModeText;
 };
 

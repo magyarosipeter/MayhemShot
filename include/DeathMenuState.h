@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <fstream>
 
 #include "State.h"
 #include "Button.h"
@@ -14,6 +15,8 @@ public:
     virtual void update(sf::RenderWindow &window, sf::Time deltaTime, bool &mouseClicked);
 	virtual void draw(sf::RenderWindow& window);
 
+	virtual void handleEvents(sf::Event &event) {};
+
 private:
     Title youDiedText;
 
@@ -22,6 +25,9 @@ private:
 
     sf::Font font;
     sf::Text score;
+
+    bool highScoreVisible;
+    Title newHighscoreText;
 
     MusicPlayer* musicPlayer;
 };

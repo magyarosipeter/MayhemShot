@@ -4,6 +4,9 @@ Game::Game() {
     window.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "MayhemShot");
     window.setFramerateLimit(60);
 
+    windowIcon.loadFromFile(GAME_ICON_TEXTURE);
+    window.setIcon(windowIcon.getSize().x, windowIcon.getSize().y, windowIcon.getPixelsPtr());
+
     MainMenuState* mainMenuState = new MainMenuState(&gameState);
 
     gameState.pushState(mainMenuState);
@@ -11,17 +14,24 @@ Game::Game() {
     mouseClicked = false;
 
     focused = true;
+
+    std::ifstream fin(OPTIONS_DATA);
+    unsigned score, volume;
+    fin >> volume >> score;
+    volume = volume%101;
+    fin.close();
+    sf::Listener::setGlobalVolume(volume);
 }
 
 void Game::run() {
-    frameTimer.restart();
+
     while (window.isOpen() and gameState.topState()!=NULL) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
                 window.close();
             }
-            else if (event.type == sf::Event::Resized) {
+            if (event.type == sf::Event::Resized) {
                 window.setSize( sf::Vector2u((double)SCREEN_WIDTH/SCREEN_HEIGHT*event.size.height, event.size.height) );
             }
             if (event.type == sf::Event::LostFocus) {
@@ -30,6 +40,7 @@ void Game::run() {
             if (event.type == sf::Event::GainedFocus) {
                 focused = true;
             }
+            if (gameState.topState()->needEventHandling()) gameState.topState()->handleEvents(event);
         }
 
         if (focused) {
@@ -43,8 +54,6 @@ void Game::run() {
             gameState.topState()->draw(window);
             window.display();
         }
-
-        deltaTime = frameTimer.restart();
-        //std::cout << deltaTime.asMilliseconds() << std::endl;
     }
+
 }

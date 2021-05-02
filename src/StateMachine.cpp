@@ -1,15 +1,11 @@
 #include "StateMachine.h"
 
-StateMachine::StateMachine(State* startingState) {
-	States.push(startingState);
-}
-
 StateMachine::StateMachine() {
 	//do nothing
 }
 
 void StateMachine::popState() {
-	if (States.top() != NULL) { //nullptr
+	if (States.top() != NULL) {
 		State* pointer = States.top();
 		States.pop();
 		delete pointer;
@@ -18,7 +14,7 @@ void StateMachine::popState() {
 
 void StateMachine::popState(unsigned times) {
 	for (int i=0 ; i<times ; i++) {
-        if (States.top() != NULL) { //nullptr
+        if (States.top() != NULL) {
             State* pointer = States.top();
             States.pop();
             delete pointer;

@@ -10,7 +10,6 @@ class State;
 class StateMachine {
 
 public:
-	StateMachine(State* startingState);
 	StateMachine();
 
 	void popState();

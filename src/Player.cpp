@@ -33,6 +33,11 @@ int Player::getAmmoCount() {
         return weapon->getAmmo();
     } else return 0;
 }
+int Player::getMaxAmmoCount() {
+    if (weapon!=NULL) {
+        return weapon->getMaxAmmo();
+    } else return 0;
+}
 int Player::getDamage() {
     if (weapon!=NULL) {
         return weapon->getDamage();

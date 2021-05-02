@@ -1,11 +1,30 @@
 #include "OptionsState.h"
 
+std::string unsignedToStringMenu(unsigned n) {
+    std::stringstream ss;
+    ss << n;
+    return ss.str();
+}
+
 OptionsState::OptionsState(StateMachine* stateMachine) {
     this->stateMachine = stateMachine;
+
+    std::fstream fin(OPTIONS_DATA);
+    fin >> volume >> highScore;
+    fin.close();
+
+    volume = volume%101;
 
     backgroundTexture.loadFromFile(OPTIONS_BACKGROUND_TEXTURE);
     background.setTexture(backgroundTexture);
     background.setColor(sf::Color(255,255,255,120));
+
+    title.setAttributes(sf::Vector2f(SCREEN_WIDTH/2, SCREEN_HEIGHT*5/100),
+        "Options and Credits",
+        90,
+        TIMES_FONT,
+        ORANGE
+    );
 
     font.loadFromFile(TIMES_FONT);
     descriptionText.setFont(font);
@@ -42,6 +61,21 @@ OptionsState::OptionsState(StateMachine* stateMachine) {
 		sf::Color::White,
 		SALMON
     );
+
+    highScoreText.setCharacterSize(50);
+    highScoreText.setFont(font);
+    highScoreText.setString("Highscore:");
+    highScoreText.setOrigin(sf::Vector2f(highScoreText.getGlobalBounds().width/2, highScoreText.getGlobalBounds().height/2));
+    highScoreText.setPosition(sf::Vector2f(SCREEN_WIDTH*3/4, SCREEN_HEIGHT*25/100));
+
+    highScoreNumber.setCharacterSize(50);
+    highScoreNumber.setFont(font);
+    highScoreNumber.setString(""+unsignedToStringMenu(highScore));
+    highScoreNumber.setOrigin(sf::Vector2f(highScoreNumber.getGlobalBounds().width/2, highScoreNumber.getGlobalBounds().height/2));
+    highScoreNumber.setPosition(highScoreText.getPosition());
+    highScoreNumber.move(0, highScoreNumber.getGlobalBounds().height*1.5f);
+
+    volumeSlider.create(sf::Vector2f(SCREEN_WIDTH/7, SCREEN_HEIGHT*30/100), sf::Vector2f(400, 35), "Volume", 100, volume, "%", TIMES_FONT);
 }
 
 void OptionsState::update(sf::RenderWindow &window, sf::Time deltaTime, bool &mouseClicked) {
@@ -52,6 +86,12 @@ void OptionsState::update(sf::RenderWindow &window, sf::Time deltaTime, bool &mo
     if(backButton.update(transformedMousePos, mouseClicked)) {
         stateMachine->popState();
     }
+    if (volumeSlider.checkInput(transformedMousePos)) {
+        std::ofstream fout(OPTIONS_DATA);
+        volume = volumeSlider.getPercentage();
+        fout << volume << " " << highScore;
+        sf::Listener::setGlobalVolume( volume );
+    }
 
     //std::cout << transformedMousePos.x << " " << transformedMousePos.y << std::endl;
 }
@@ -59,10 +99,17 @@ void OptionsState::update(sf::RenderWindow &window, sf::Time deltaTime, bool &mo
 void OptionsState::draw(sf::RenderWindow& window) {
     window.draw(background);
 
+    title.drawToScreen(window);
+
     window.draw(creatorText);
     window.draw(SFMLSprite);
     window.draw(heartSprite);
     window.draw(descriptionText);
+
+    window.draw(highScoreText);
+    window.draw(highScoreNumber);
+
+    volumeSlider.drawToScreen(window);
 
 	backButton.drawToScreen(window);
 }

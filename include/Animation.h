@@ -8,6 +8,7 @@ public:
     sf::IntRect getCurrentIntRect();
     void advanceAnimation();
     void addIntRect(sf::IntRect newIntRect);
+    void setSwitchFrameValue(unsigned switchFrameValue);
 
 private:
     std::vector<sf::IntRect> frames;

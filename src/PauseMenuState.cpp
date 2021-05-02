@@ -48,6 +48,13 @@ PauseMenuState::PauseMenuState(StateMachine* stateMachine, MusicPlayer* musicPla
         TIMES_FONT,
         ORANGE
     );
+
+    font.loadFromFile(TIMES_FONT);
+    warning.setString("Warning! Your score will not be saved!");
+    warning.setCharacterSize(30);
+    warning.setFont(font);
+    warning.setOrigin(warning.getGlobalBounds().width/2, warning.getGlobalBounds().height/2);
+    warning.setPosition(sf::Vector2f(SCREEN_WIDTH*50/100, SCREEN_HEIGHT*75/100));
 }
 
 void PauseMenuState::update(sf::RenderWindow &window, sf::Time deltaTime, bool &mouseClicked) {
@@ -74,4 +81,6 @@ void PauseMenuState::draw(sf::RenderWindow& window) {
     resumeButton.drawToScreen(window);
     optionsButton.drawToScreen(window);
     backToMenuButton.drawToScreen(window);
+
+    window.draw(warning);
 }
